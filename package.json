@@ -1,0 +1,168 @@
+{
+  "name": "@flex-development/vite-plugin-react-docgen-typescript",
+  "description": "A react-docgen-typescript plugin for Vite",
+  "version": "1.0.0",
+  "keywords": [
+    "docgen",
+    "react",
+    "react-docgen-typescript",
+    "typescript",
+    "vite",
+    "vite-plugin"
+  ],
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flex-development/vite-plugin-react-docgen-typescript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flex-development/vite-plugin-react-docgen-typescript/issues"
+  },
+  "author": {
+    "name": "Lexus Drumgold",
+    "url": "https://github.com/unicornware"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "./"
+  },
+  "type": "module",
+  "files": [
+    "dist",
+    "src",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./constants": {
+      "types": "./dist/constants.d.ts",
+      "import": "./dist/constants.mjs",
+      "require": "./dist/constants.cjs"
+    },
+    "./options": {
+      "types": "./dist/options.d.ts",
+      "import": "./dist/options.mjs",
+      "require": "./dist/options.cjs"
+    },
+    "./package.json": "./package.json",
+    "./plugin": {
+      "types": "./dist/plugin.d.ts",
+      "import": "./dist/plugin.mjs",
+      "require": "./dist/plugin.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "unbuild",
+    "check:ci": "yarn fix:cg && yarn check:spelling && yarn check:types && yarn test && NODE_ENV=production yarn pack -o %s-%v.tgz",
+    "check:dedupe": "yarn dedupe --check",
+    "check:format": "prettier --check .",
+    "check:lint": "eslint --cache --exit-on-fatal-error --ext cjs,json,md,mjs,ts,tsx,yml --max-warnings 0 .",
+    "check:spelling": "cspell lint --color --no-progress --relative $@ \"**\"",
+    "check:types": "NODE_OPTIONS='--es-module-specifier-resolution=node --loader=./loader' tsc -p tsconfig.json",
+    "check:upgrades": "yarn upgrade-interactive",
+    "clean:build": "trash ./{dist,*.tgz}",
+    "clean:modules": "trash ./.yarn/{cache,*.gz} ./node_modules",
+    "clean:test": "trash ./coverage",
+    "fix:cg": "yarn fix:format && yarn fix:lint",
+    "fix:dedupe": "yarn dedupe --strategy=highest",
+    "fix:format": "prettier --write .",
+    "fix:lint": "yarn check:lint --fix",
+    "postinstall": "is-ci || chmod +x .husky/* && husky install",
+    "postpack": "toggle-scripts +postinstall",
+    "postpublish": "toggle-scripts +prepack",
+    "prepack": "toggle-scripts -postinstall && yarn build",
+    "prepublishOnly": "toggle-scripts -prepack",
+    "release": "echo \"todo: yarn release\" && exit 0",
+    "test": "NODE_ENV=test vitest run",
+    "test:cov": "yarn test --coverage",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@types/micromatch": "4.0.2",
+    "magic-string": "0.26.2",
+    "micromatch": "4.0.5",
+    "react-docgen-typescript": "2.2.2",
+    "ts-dedent": "2.2.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.0.3",
+    "@commitlint/config-conventional": "17.0.3",
+    "@commitlint/types": "17.0.0",
+    "@faker-js/faker": "7.3.0",
+    "@flex-development/tutils": "4.8.0",
+    "@types/chai": "4.3.1",
+    "@types/eslint": "8.4.5",
+    "@types/is-ci": "3.0.0",
+    "@types/micromatch": "4.0.2",
+    "@types/mvdan-sh": "0.5.1",
+    "@types/node": "16.11.45",
+    "@types/node-notifier": "8.0.2",
+    "@types/prettier": "2.6.3",
+    "@types/react": "18.0.15",
+    "@typescript-eslint/eslint-plugin": "5.31.0",
+    "@typescript-eslint/parser": "5.31.0",
+    "@vates/toggle-scripts": "1.0.0",
+    "@vitest/ui": "0.19.1",
+    "chai": "4.3.6",
+    "cspell": "6.4.1",
+    "eslint": "8.20.0",
+    "eslint-plugin-chai-expect": "3.0.0",
+    "eslint-plugin-jest": "26.6.0",
+    "eslint-plugin-jest-formatting": "3.1.0",
+    "eslint-plugin-jsdoc": "39.3.3",
+    "eslint-plugin-jsonc": "2.3.1",
+    "eslint-plugin-markdown": "3.0.0",
+    "eslint-plugin-markdownlint": "0.4.0",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-promise": "6.0.0",
+    "eslint-plugin-react": "7.30.1",
+    "eslint-plugin-unicorn": "43.0.2",
+    "eslint-plugin-yml": "1.0.0",
+    "growl": "1.10.5",
+    "husky": "8.0.1",
+    "is-ci": "3.0.1",
+    "jsonc-eslint-parser": "2.1.0",
+    "lint-staged": "13.0.3",
+    "node-notifier": "10.0.1",
+    "prettier": "2.7.1",
+    "prettier-plugin-sh": "0.12.6",
+    "pretty-format": "28.1.3",
+    "react": "18.2.0",
+    "resolve-tspaths": "0.7.1",
+    "trash-cli": "5.0.0",
+    "ts-node": "10.9.1",
+    "tsconfig": "7.0.0",
+    "tsconfig-paths": "4.0.0",
+    "unbuild": "0.7.6",
+    "vite": "3.0.3",
+    "vite-plugin-inspect": "0.6.0",
+    "vite-tsconfig-paths": "3.5.0",
+    "viteshot": "0.3.1",
+    "vitest": "0.19.1",
+    "vitest-github-actions-reporter": "0.8.1",
+    "yaml-eslint-parser": "1.0.1"
+  },
+  "peerDependencies": {
+    "vite": ">=2.0.0"
+  },
+  "resolutions": {
+    "c8": "7.12.0",
+    "consola": "2.15.3",
+    "mkdist": "patch:mkdist@npm:0.3.13#.yarn/patches/mkdist-npm-0.3.13-c41cf41c68.patch",
+    "typescript": "4.8.0-beta"
+  },
+  "engines": {
+    "npm": "use-yarn",
+    "yarn": "3.2.1"
+  },
+  "packageManager": "yarn@4.0.0-rc.14",
+  "readme": "README.md"
+}

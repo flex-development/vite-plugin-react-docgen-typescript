@@ -1,0 +1,62 @@
+{
+  // SEE: https://github.com/tsconfig/bases/blob/main/bases/node16-strictest-esm.combined.json
+  "compilerOptions": {
+    "allowJs": true,
+    "allowUnreachableCode": false,
+    "baseUrl": "./",
+    "checkJs": false,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "exactOptionalPropertyTypes": false,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": false,
+    "lib": ["es2021"],
+    "module": "es2022",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noErrorTruncation": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "outDir": "dist",
+    "paths": {
+      "fixtures/*": ["__fixtures__/*"],
+      "src/*": ["src/*"],
+      "tests/*": ["__tests__/*"]
+    },
+    "preserveConstEnums": true,
+    "preserveSymlinks": true,
+    "pretty": true,
+    "resolveJsonModule": true,
+    "rootDir": "./",
+    "skipLibCheck": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "target": "es2021",
+    "useDefineForClassFields": true,
+    "useUnknownInCatchVariables": true
+  },
+  "exclude": ["./coverage", "./dist", "./node_modules"],
+  "include": [
+    "**/**/*.cjs",
+    "**/**/*.mjs",
+    "**/**/*.ts",
+    "**/**/.*.cjs",
+    "**/**/.*.ts"
+  ],
+  // SEE: https://typestrong.org/ts-node/docs/configuration
+  "ts-node": {
+    "compilerOptions": {},
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+    "moduleTypes": {},
+    "require": [],
+    "transpileOnly": true
+  }
+}

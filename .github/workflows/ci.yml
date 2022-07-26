@@ -1,0 +1,63 @@
+# Continuous Integration
+#
+# References:
+#
+# - https://github.com/actions/checkout/tree/v2
+# - https://github.com/actions/setup-node/tree/v2
+# - https://docs.github.com/actions/guides/building-and-testing-nodejs
+
+---
+name: continuous-integration
+on:
+  pull_request:
+  push:
+    branches:
+      - next
+  workflow_dispatch:
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    env:
+      GH_PAT: ${{ secrets.PAT_GPR_ADMIN }}
+      NODE_AUTH_TOKEN: ${{ secrets.PAT_GPR_ADMIN }}
+      NODE_NO_WARNINGS: 1
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN_ADMIN }}
+    strategy:
+      matrix:
+        node: [16.16.0]
+    steps:
+      - id: checkout
+        name: Checkout branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - id: node
+        name: Setup Node ${{ matrix.node }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+          scope: '@${{ github.repository_owner }}'
+      - id: yarn
+        name: Install dependencies
+        run: yarn --immutable
+      - id: format
+        name: Check code formatting
+        run: yarn check:format
+      - id: lint
+        name: Check lint status
+        run: yarn check:lint
+      - id: spelling
+        name: Check spelling
+        run: yarn check:spelling
+      - id: test
+        name: Run tests
+        run: yarn test
+        env:
+          NODE_ENV: test
+          NODE_OPTIONS: --es-module-specifier-resolution=node
+      - id: pack
+        name: Build and pack
+        run: yarn pack -o %s-%v.tgz
+        env:
+          NODE_OPTIONS: --es-module-specifier-resolution=node
+          NODE_ENV: production

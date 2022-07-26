@@ -1,0 +1,105 @@
+{
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.enabled": true,
+  "editor.autoClosingBrackets": "always",
+  "emmet.showExpandedAbbreviation": "always",
+  "emmet.triggerExpansionOnTab": true,
+  "eslint.enable": true,
+  "eslint.nodePath": "./node_modules/eslint",
+  "eslint.options": {
+    "extensions": ["cjs", "json", "md", "mjs", "ts", "tsx", "yml"],
+    "overrideConfigFile": "./.eslintrc.cjs"
+  },
+  "eslint.packageManager": "yarn",
+  "eslint.validate": [
+    "javascript",
+    "json",
+    "markdown",
+    "typescript",
+    "typescriptreact"
+  ],
+  "files.associations": {
+    ".env.zsh": "shellscript",
+    ".markdownlintignore": "ignore",
+    "commit-msg": "shellscript",
+    "pre-commit": "shellscript",
+    "pre-push": "shellscript"
+  },
+  "markdownlint.ignore": "./.markdownlintignore",
+  "prettier.configPath": "./.prettierrc.json",
+  "prettier.enable": true,
+  "prettier.ignorePath": "./.prettierignore",
+  "prettier.prettierPath": "./node_modules/prettier",
+  "prettier.resolveGlobalModules": false,
+  "shellformat.flag": "-ci -fn -i=2 -sr",
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "vsicons.associations.files": [
+    {
+      "extensions": [".commitlintrc.ts"],
+      "format": "svg",
+      "icon": "commitlint"
+    },
+    {
+      "extensions": [".eslintrc.base.cjs", ".eslintrc.react.cjs"],
+      "format": "svg",
+      "icon": "eslint"
+    },
+    {
+      "extensions": [".lintstagedrc.cjs"],
+      "format": "svg",
+      "icon": "lintstagedrc"
+    },
+    {
+      "extensions": [".markdownlint.cjs", ".markdownlintignore"],
+      "format": "svg",
+      "icon": "markdownlint"
+    },
+    {
+      "extensions": ["tsnode.json"],
+      "format": "svg",
+      "icon": "tsconfig"
+    },
+    {
+      "extensions": ["yarnrc.yml"],
+      "format": "svg",
+      "icon": "yarn"
+    }
+  ],
+  "vsicons.associations.folders": [
+    {
+      "extensions": ["__fixtures__"],
+      "format": "svg",
+      "icon": "data"
+    },
+    {
+      "extensions": ["setup"],
+      "format": "svg",
+      "icon": "config"
+    },
+    {
+      "extensions": ["types"],
+      "format": "svg",
+      "icon": "typings"
+    }
+  ]
+}
