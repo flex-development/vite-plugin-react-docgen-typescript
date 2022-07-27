@@ -13,7 +13,7 @@ module.exports = {
   /**
    * Fix code style.
    */
-  [`**/*.{${extensions.join(',')}}`]: ['yarn fix:style', 'git add -A'],
+  [`**/*.{${extensions.join(',')}}`]: ['yarn fix:lint', 'git add -A'],
 
   /**
    * Fix formatting and check spelling.

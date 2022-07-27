@@ -55,7 +55,9 @@
     "compilerOptions": {},
     "esm": true,
     "experimentalSpecifierResolution": "node",
-    "moduleTypes": {},
+    "moduleTypes": {
+      ".commitlintrc.ts": "cjs"
+    },
     "require": [],
     "transpileOnly": true
   }
