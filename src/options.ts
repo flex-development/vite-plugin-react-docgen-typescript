@@ -3,6 +3,7 @@
  * @module vite-plugin-react-docgen-typescript/Options
  */
 
+import type { SourceMapOptions } from 'magic-string'
 import type { ComponentDoc, ParserOptions } from 'react-docgen-typescript'
 import type { Plugin } from 'vite'
 
@@ -86,6 +87,18 @@ interface Options extends ParserOptions {
    * @default doc=>doc.displayName
    */
   name?(doc: ComponentDoc, code: string, id: string): Promise<string> | string
+
+  /**
+   * Include [version 3 sourcemap][1] in final transform result for successfully
+   * parsed modules.
+   *
+   * [1]: https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit
+   *
+   * @see https://github.com/Rich-Harris/magic-string#sgeneratemap-options-
+   *
+   * @default true
+   */
+  sourcemap?: Omit<SourceMapOptions, 'source'> | boolean
 
   /**
    * Name of tsconfig file or path to tsconfig file.
