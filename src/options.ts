@@ -73,22 +73,6 @@ interface Options extends ParserOptions {
   include?: string[]
 
   /**
-   * Generate the name of the component to add a `__docgenInfo` property to.
-   *
-   * **Note**: `code` may have transforms from other plugins already applied.
-   *
-   * @see {@link ComponentDoc}
-   *
-   * @param {ComponentDoc} doc - Component docgen info object
-   * @param {string} code - Module code being transformed
-   * @param {string} id - Path to module being transformed
-   * @return {Promise<string> | string} Component name
-   *
-   * @default doc=>doc.displayName
-   */
-  name?(doc: ComponentDoc, code: string, id: string): Promise<string> | string
-
-  /**
    * Include [version 3 sourcemap][1] in final transform result for successfully
    * parsed modules.
    *
