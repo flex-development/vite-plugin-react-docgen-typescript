@@ -20,7 +20,6 @@ updates:
       separator: '-'
     rebase-strategy: auto
     target-branch: next
-    versioning-strategy: increase
   - package-ecosystem: npm
     directory: /
     schedule:
@@ -29,7 +28,10 @@ updates:
       prefix: build
       include: scope
     ignore:
+      - dependency-name: '@storybook/react'
       - dependency-name: '@types/node'
+      - dependency-name: '@types/styled-components'
+      - dependency-name: styled-components
     labels:
       - type:build
     open-pull-requests-limit: 5

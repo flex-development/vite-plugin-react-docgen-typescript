@@ -26,7 +26,7 @@ const hooks = createEsmHooks(register())
  *
  * @param {string} url - `file:` url of module
  * @param {LoadHookContext} context - Hook context
- * @param {(LoaderHookFormat | null)?} [context.format] - Module format
+ * @param {?LoaderHookFormat} [context.format] - Module format
  * @param {ImportAssertions} context.importAssertions - Import assertions map
  * @param {LoadHook} defaultLoad - Default Node.js `load` function
  * @return {Promise<LoadHookResult>} Hook result

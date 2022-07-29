@@ -6,4 +6,4 @@
 #
 # - https://vitest.dev/guide/cli.html#changed
 
-yarn test --changed
+yarn test --changed HEAD^

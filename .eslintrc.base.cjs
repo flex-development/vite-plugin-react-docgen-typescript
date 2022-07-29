@@ -53,11 +53,24 @@ const config = {
     node: true
   },
   extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
-  globals: {},
+  globals: {
+    Chai: 'readonly',
+    Console: 'readonly',
+    JSX: 'readonly',
+    LoadHook: 'readonly',
+    LoadHookContext: 'readonly',
+    LoadHookResult: 'readonly',
+    LoaderHookFormat: 'readonly',
+    NodeJS: 'readonly',
+    ResolveFilename: 'readonly',
+    ResolveHook: 'readonly',
+    ResolveHookContext: 'readonly',
+    ResolveHookResult: 'readonly'
+  },
   parser: require.resolve('@typescript-eslint/parser'),
   parserOptions: {
     ecmaFeatures: {
-      jsx: Boolean(tsconfig.compilerOptions.jsx ?? false),
+      jsx: Boolean(tsconfig.compilerOptions.jsx),
       impliedStrict: true
     },
     emitDecoratorMetadata: tsconfig.compilerOptions.emitDecoratorMetadata,
@@ -518,7 +531,7 @@ const config = {
     'jsdoc/check-tag-names': [
       1,
       {
-        definedTags: ['fixme', 'link', 'maximum', 'minimum'],
+        definedTags: ['visibleName'],
         jsxTags: true
       }
     ],
@@ -543,27 +556,7 @@ const config = {
     ],
     'jsdoc/no-restricted-syntax': 0,
     'jsdoc/no-types': 0,
-    'jsdoc/no-undefined-types': [
-      1,
-      {
-        definedTypes: [
-          'Chai',
-          'Console',
-          'JSX',
-          'LoadHook',
-          'LoadHookContext',
-          'LoadHookResult',
-          'LoaderHookFormat',
-          'NodeJS',
-          'ResolveFilename',
-          'ResolveHook',
-          'ResolveHookContext',
-          'ResolveHookResult',
-          'never',
-          'unknown'
-        ]
-      }
-    ],
+    'jsdoc/no-undefined-types': [1, { definedTypes: ['never', 'unknown'] }],
     'jsdoc/require-asterisk-prefix': [1, 'always'],
     'jsdoc/require-description-complete-sentence': 0,
     'jsdoc/require-description': [
@@ -908,6 +901,7 @@ const config = {
         '@typescript-eslint/no-base-to-string': 0,
         '@typescript-eslint/no-unused-expressions': 0,
         '@typescript-eslint/restrict-template-expressions': 0,
+        '@typescript-eslint/unbound-method': 0,
         'chai-expect/missing-assertion': 2,
         'chai-expect/no-inner-compare': 2,
         'chai-expect/no-inner-literal': 2,
@@ -1233,8 +1227,15 @@ const config = {
           name: 'namepath-defining',
           required: ['type']
         },
+        type: {
+          name: 'namepath-defining',
+          required: ['type']
+        },
         var: {
           name: 'namepath-defining',
+          required: ['name']
+        },
+        visibleName: {
           required: ['name']
         },
         yield: {

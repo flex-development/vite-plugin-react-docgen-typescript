@@ -16,6 +16,12 @@ const config = {
   overrides: [
     ...base.overrides,
     {
+      files: ['__fixtures__/**'],
+      rules: {
+        'unicorn/filename-case': 0
+      }
+    },
+    {
       files: ['build.config.ts'],
       rules: {
         'unicorn/prefer-module': 0

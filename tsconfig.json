@@ -11,7 +11,8 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": false,
-    "lib": ["es2021"],
+    "jsx": "react-jsxdev",
+    "lib": ["dom", "es2021"],
     "module": "es2022",
     "moduleResolution": "node",
     "noEmit": true,
@@ -47,6 +48,7 @@
     "**/**/*.cjs",
     "**/**/*.mjs",
     "**/**/*.ts",
+    "**/**/*.tsx",
     "**/**/.*.cjs",
     "**/**/.*.ts"
   ],
