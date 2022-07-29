@@ -15305,10 +15305,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"trim@npm:0.0.1":
-  version: 0.0.1
-  resolution: "trim@npm:0.0.1"
-  checksum: a4e00610a6f83008dfc6cd49f3d7f0150f67aab91e0c80ec8cc46640e8ffe7a008af14e1f66c38ab6294acdc4802b84fe2c00f64021ca8f092528b5f5f7a3a46
+"trim@npm:1.0.1":
+  version: 1.0.1
+  resolution: "trim@npm:1.0.1"
+  checksum: 6875fbf2ed70cec771fa011cf995636d7b4591a72b606b04e32da980d57a78eeaa302f019400cd4cb379c6d2b09c89633bd2a45bef28ff0e242c64505c20f7b8
   languageName: node
   linkType: hard
 
@@ -16090,7 +16090,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:3.0.4":
+"vite@npm:3.0.4, vite@npm:^2.9.12 || ^3.0.0-0":
   version: 3.0.4
   resolution: "vite@npm:3.0.4"
   dependencies:
@@ -16119,38 +16119,6 @@ __metadata:
   bin:
     vite: bin/vite.js
   checksum: 65535d8402011fee6edf89944fb1fdaa77275d71f87bc8d76a285ccf40badbbfba649c10cad31305de29b41c82641410ad8a835a1b39e2d0440efdd54912a81c
-  languageName: node
-  linkType: hard
-
-"vite@npm:^2.9.12 || ^3.0.0-0":
-  version: 3.0.3
-  resolution: "vite@npm:3.0.3"
-  dependencies:
-    esbuild: "npm:^0.14.47"
-    fsevents: "npm:~2.3.2"
-    postcss: "npm:^8.4.14"
-    resolve: "npm:^1.22.1"
-    rollup: "npm:^2.75.6"
-  peerDependencies:
-    less: "*"
-    sass: "*"
-    stylus: "*"
-    terser: ^5.4.0
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  peerDependenciesMeta:
-    less:
-      optional: true
-    sass:
-      optional: true
-    stylus:
-      optional: true
-    terser:
-      optional: true
-  bin:
-    vite: bin/vite.js
-  checksum: 14956d8d355b2ec60925c9b94699640cd81e331209ca9bedd1659a93810c505fd263424fa8998168b6bc6e32375b6be17ad15ed4817847a7bcbc497bfd86205a
   languageName: node
   linkType: hard
 

@@ -160,6 +160,7 @@
     "@types/picomatch": "2.3.0",
     "mkdist": "patch:mkdist@npm:0.3.13#.yarn/patches/mkdist-npm-0.3.13-c41cf41c68.patch",
     "picomatch": "2.3.1",
+    "trim": "1.0.1",
     "typescript": "4.8.0-beta"
   },
   "engines": {
