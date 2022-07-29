@@ -6,7 +6,7 @@
 # References:
 #
 # - https://github.com/ahmadnassri/action-dependabot-auto-merge
-# - https://github.com/ahmadnassri/action-dependabot-auto-merge/issues/60#issuecomment-806027389
+# - https://github.com/ahmadnassri/action-dependabot-auto-merge/issues/60
 
 ---
 name: dependabot-auto-merge

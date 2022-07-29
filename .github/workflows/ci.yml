@@ -2,8 +2,8 @@
 #
 # References:
 #
-# - https://github.com/actions/checkout/tree/v2
-# - https://github.com/actions/setup-node/tree/v2
+# - https://github.com/actions/checkout
+# - https://github.com/actions/setup-node
 # - https://docs.github.com/actions/guides/building-and-testing-nodejs
 
 ---

@@ -1,8 +1,8 @@
-# Labels Syncer
+# Label Syncer
 #
 # References:
 #
-# - https://github.com/micnncim/action-label-syncer/tree/v1.3.0
+# - https://github.com/micnncim/action-label-syncer
 
 ---
 name: label-syncer
