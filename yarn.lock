@@ -2282,7 +2282,7 @@ __metadata:
     pretty-format: "npm:28.1.3"
     react: "npm:18.2.0"
     react-docgen-typescript: "npm:2.2.2"
-    resolve-tspaths: "npm:0.7.1"
+    resolve-tspaths: "npm:0.7.4"
     styled-components: "npm:5.3.5"
     telejson: "npm:6.0.8"
     trash-cli: "npm:5.0.0"
@@ -13732,9 +13732,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve-tspaths@npm:0.7.1":
-  version: 0.7.1
-  resolution: "resolve-tspaths@npm:0.7.1"
+"resolve-tspaths@npm:0.7.4":
+  version: 0.7.4
+  resolution: "resolve-tspaths@npm:0.7.4"
   dependencies:
     ansi-colors: "npm:4.1.3"
     commander: "npm:9.4.0"
@@ -13743,7 +13743,7 @@ __metadata:
     typescript: ">=3.0.3"
   bin:
     resolve-tspaths: dist/main.js
-  checksum: f6dd90dfad3559044bf343b9e28836c9d76cc31b6cf15f1e962c42c187a7ca920c6021694b8b8b6268c4b45473aac3403c9eaa4095dc0def043db5334ebf66ee
+  checksum: 72765f9fa00d267a2bb211f56cb48b0e7fa08775a498c49be6d7f801d0ed173afad95fb1ccb2c067bf1821c9d1120348637ec3df776268e9cb5a34406ba59c17
   languageName: node
   linkType: hard
 
