@@ -2269,7 +2269,7 @@ __metadata:
     eslint-plugin-promise: "npm:6.0.0"
     eslint-plugin-react: "npm:7.30.1"
     eslint-plugin-unicorn: "npm:43.0.2"
-    eslint-plugin-yml: "npm:1.0.0"
+    eslint-plugin-yml: "npm:1.1.0"
     growl: "npm:1.10.5"
     husky: "npm:8.0.1"
     is-ci: "npm:3.0.1"
@@ -7839,17 +7839,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-yml@npm:1.0.0":
-  version: 1.0.0
-  resolution: "eslint-plugin-yml@npm:1.0.0"
+"eslint-plugin-yml@npm:1.1.0":
+  version: 1.1.0
+  resolution: "eslint-plugin-yml@npm:1.1.0"
   dependencies:
     debug: "npm:^4.3.2"
     lodash: "npm:^4.17.21"
     natural-compare: "npm:^1.4.0"
-    yaml-eslint-parser: "npm:^1.0.0"
+    yaml-eslint-parser: "npm:^1.1.0"
   peerDependencies:
     eslint: ">=6.0.0"
-  checksum: 804f14f3b9221f1b8134c28076abd24e766ad8b91d53dbd7f945179a75f37c3c397d58deb92af38349b15bc4a677868a5468bf15cb64fea6459df0b9b25fc77c
+  checksum: 55e81c99d65afe9b181a1f28e93e67b569e0b32421d53b19bb23196124783c26b530636546b8cbc68a28f2aa5d5448124a5e625de1c1b8595ab2aef44a4b5454
   languageName: node
   linkType: hard
 
@@ -16557,7 +16557,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml-eslint-parser@npm:^1.0.0":
+"yaml-eslint-parser@npm:^1.1.0":
   version: 1.1.0
   resolution: "yaml-eslint-parser@npm:1.1.0"
   dependencies:
