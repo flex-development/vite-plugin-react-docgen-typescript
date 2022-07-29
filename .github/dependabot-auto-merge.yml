@@ -2,8 +2,8 @@
 #
 # References:
 #
-# - https://github.com/ahmadnassri/action-dependabot-auto-merge#configuration-file-syntax
+# - https://github.com/ahmadnassri/action-dependabot-auto-merge#match-properties
 
 - match:
   dependency_type: all
-  update_type: semver:${TARGET}
+  update_type: all

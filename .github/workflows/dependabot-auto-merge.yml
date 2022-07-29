@@ -6,7 +6,7 @@
 # References:
 #
 # - https://github.com/ahmadnassri/action-dependabot-auto-merge
-# - https://github.com/ahmadnassri/action-dependabot-auto-merge/issues/60#issuecomment-806027389
+# - https://github.com/ahmadnassri/action-dependabot-auto-merge/issues/60
 
 ---
 name: dependabot-auto-merge
@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: approve-squash-merge
-        uses: ahmadnassri/action-dependabot-auto-merge@v2.4.0
+        uses: ahmadnassri/action-dependabot-auto-merge@v2.6.0
         with:
           approve: true
           command: squash and merge
