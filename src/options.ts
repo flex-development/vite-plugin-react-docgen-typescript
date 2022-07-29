@@ -1,8 +1,9 @@
 /**
  * @file RDT Plugin - Options
- * @module vite-plugin-react-docgen-typescript/Options
+ * @module vite-plugin-react-docgen-typescript/options
  */
 
+import type { SourceMapOptions } from 'magic-string'
 import type { ComponentDoc, ParserOptions } from 'react-docgen-typescript'
 import type { Plugin } from 'vite'
 
@@ -33,13 +34,11 @@ interface Options extends ParserOptions {
   /**
    * Glob patterns matching files to exclude from parsing.
    *
-   * **Note**: Applied **after** {@link include}.
+   * @see https://github.com/micromatch/picomatch
    *
-   * @see https://github.com/micromatch/micromatch
-   *
-   * @default []
+   * @default ['**\/**.stories.tsx']
    */
-  exclude?: string[]
+  exclude?: (RegExp | string)[]
 
   /**
    * Apply additional processing to a `ComponentDoc` before `__docgenInfo` is
@@ -53,8 +52,6 @@ interface Options extends ParserOptions {
    * @param {string} code - Module code being transformed
    * @param {string} id - Path to module being transformed
    * @return {ComponentDoc | Promise<ComponentDoc>} Augmented `doc`
-   *
-   * @default doc=>doc
    */
   handler?(
     doc: ComponentDoc,
@@ -65,27 +62,22 @@ interface Options extends ParserOptions {
   /**
    * Glob patterns matching files to parse for docgen information.
    *
-   * @see https://github.com/micromatch/micromatch
+   * @see https://github.com/micromatch/picomatch
    *
-   * @default ['**.tsx']
+   * @default ['**\/**.tsx']
    */
-  include?: string[]
+  include?: (RegExp | string)[]
 
   /**
-   * Generate the name of the component to add a `__docgenInfo` property to.
+   * Include [version 3 sourcemap][1] in transform result.
    *
-   * **Note**: `code` may have transforms from other plugins already applied.
+   * [1]: https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit
    *
-   * @see {@link ComponentDoc}
+   * @see https://github.com/Rich-Harris/magic-string#sgeneratemap-options-
    *
-   * @param {ComponentDoc} doc - Component docgen info object
-   * @param {string} code - Module code being transformed
-   * @param {string} id - Path to module being transformed
-   * @return {Promise<string> | string} Component name
-   *
-   * @default doc=>doc.displayName
+   * @default true
    */
-  name?(doc: ComponentDoc, code: string, id: string): Promise<string> | string
+  sourcemap?: Omit<SourceMapOptions, 'source'> | boolean
 
   /**
    * Name of tsconfig file or path to tsconfig file.

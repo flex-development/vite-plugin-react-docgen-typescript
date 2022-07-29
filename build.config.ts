@@ -4,6 +4,7 @@
  * @see https://github.com/unjs/unbuild#configuration
  */
 
+import type { MkdistOptions } from 'mkdist'
 import path from 'node:path'
 import { applyChanges } from 'resolve-tspaths/dist/steps/applyChanges'
 import { computeAliases } from 'resolve-tspaths/dist/steps/computeAliases'
@@ -15,7 +16,8 @@ import {
   defineBuildConfig,
   type BuildConfig,
   type BuildContext,
-  type BuildOptions
+  type BuildOptions,
+  type MkdistBuildEntry
 } from 'unbuild'
 
 /** @const {BuildConfig} config - Build config */
@@ -71,6 +73,19 @@ const config: BuildConfig = defineBuildConfig({
       } catch (e: unknown) {
         console.error(e instanceof Error ? e.message : e)
       }
+    },
+    /**
+     * Updates `mkdist` build options.
+     *
+     * @see https://github.com/unjs/mkdist#-usage
+     *
+     * @param {BuildContext} _ - Build context
+     * @param {MkdistBuildEntry} __ - `mkdist` build entry
+     * @param {MkdistOptions} options - `mkdist` build options
+     * @return {void} Nothing when complete
+     */
+    'mkdist:entry:options'(_, __, options: MkdistOptions): void {
+      options.pattern = '*'
     }
   }
 })

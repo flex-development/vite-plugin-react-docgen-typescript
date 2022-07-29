@@ -17,9 +17,11 @@ esbenp
 esbuild
 fbca
 fpnv
+frec
 gifv
 gpgsign
 iife
+jsxdev
 lcov
 lintstagedrc
 micnncim
@@ -32,9 +34,11 @@ nums
 nvmrc
 ohmyzsh
 pdel
+picomatch
 rcmdnk
 safecrlf
 syncer
+telejson
 tsnode
 tspaths
 vates

@@ -3,6 +3,7 @@
 
 # DIRECTORIES & FILES
 **/.DS_Store
+**/*.snap
 .eslintcache
 .yarn/*
 CHANGELOG.md

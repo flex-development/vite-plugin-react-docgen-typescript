@@ -5,6 +5,12 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[jest-snapshot]": {
+    "editor.rulers": [120],
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 120,
+    "rewrap.wrappingColumn": 120
+  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -39,6 +45,7 @@
     "typescriptreact"
   ],
   "files.associations": {
+    "*.snap": "jest-snapshot",
     ".env.zsh": "shellscript",
     ".markdownlintignore": "ignore",
     "commit-msg": "shellscript",
@@ -80,6 +87,11 @@
       "icon": "tsconfig"
     },
     {
+      "extensions": ["snap"],
+      "format": "svg",
+      "icon": "vitest"
+    },
+    {
       "extensions": ["yarnrc.yml"],
       "format": "svg",
       "icon": "yarn"
@@ -90,6 +102,11 @@
       "extensions": ["__fixtures__"],
       "format": "svg",
       "icon": "data"
+    },
+    {
+      "extensions": ["__snapshots__"],
+      "format": "svg",
+      "icon": "temp"
     },
     {
       "extensions": ["setup"],
