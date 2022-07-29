@@ -2236,7 +2236,7 @@ __metadata:
     "@types/chai": "npm:4.3.1"
     "@types/eslint": "npm:8.4.5"
     "@types/is-ci": "npm:3.0.0"
-    "@types/mvdan-sh": "npm:0.5.1"
+    "@types/mvdan-sh": "npm:0.10.0"
     "@types/node": "npm:16.11.45"
     "@types/node-notifier": "npm:8.0.2"
     "@types/prettier": "npm:2.6.3"
@@ -3647,10 +3647,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mvdan-sh@npm:0.5.1":
-  version: 0.5.1
-  resolution: "@types/mvdan-sh@npm:0.5.1"
-  checksum: e0b626a7791112f7aaa4324220b2695bdb9aeb264e69280d59cf6a702efaff4cd5099b455fc45acaaa5462f24ffacece7599813c46ef6af647fda76252b052f6
+"@types/mvdan-sh@npm:0.10.0":
+  version: 0.10.0
+  resolution: "@types/mvdan-sh@npm:0.10.0"
+  checksum: 73ed2aa5a68261c202d29b06b4ea63af2efb17d2865fd8dc6603ae37ee8fa8b2639e9c6a9ff54d1550c5c4e9c461df3127d098ed3e81566c8497094a22aab4a6
   languageName: node
   linkType: hard
 
