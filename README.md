@@ -49,15 +49,15 @@ npmScopes:
 
 ## Built With
 
-- [magic-string][1]
-- [micromatch][2]
+- [@rollup/pluginutils][1]
+- [magic-string][2]
 - [react-docgen-typescript][3]
-- [ts-dedent][4]
+- [telejson][4]
 
-[1]: https://github.com/Rich-Harris/magic-string
-[2]: https://github.com/micromatch/micromatch
+[1]: https://github.com/rollup/plugins/tree/master/packages/pluginutils
+[2]: https://github.com/Rich-Harris/magic-string
 [3]: https://github.com/styleguidist/react-docgen-typescript
-[4]: https://github.com/tamino-martinius/node-ts-dedent
+[4]: https://github.com/storybookjs/telejson
 [5]: https://vitejs.dev
 [6]:
   https://docs.github.com/en/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries

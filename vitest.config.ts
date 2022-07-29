@@ -41,7 +41,14 @@ const config = (): UserConfig => {
       coverage: {
         all: true,
         clean: true,
-        exclude: ['**/__mocks__/**', '**/__tests__/**', 'src/index.ts'],
+        exclude: [
+          '**/__mocks__/**',
+          '**/__tests__/**',
+          'src/constants.ts',
+          'src/index.ts',
+          'src/options.ts',
+          'src/plugin-type.ts'
+        ],
         extension: ['.ts'],
         include: ['src'],
         reporter: ['json-summary', 'lcov', 'text'],
@@ -64,32 +71,37 @@ const config = (): UserConfig => {
        */
       maxThreads: 1,
       minThreads: 1,
-      mockReset: false,
+      mockReset: true,
       outputFile: {
         json: './__tests__/report.json'
       },
       passWithNoTests: true,
       reporters: [
-        'default',
         'json',
+        'verbose',
         ci ? new GithubActionsReporter() : './__tests__/reporters/notifier.ts'
       ],
       /**
-       * Stores snapshots next to test files.
+       * Stores snapshots next to `file`'s directory.
        *
        * @param {string} file - Path to test file
-       * @param {string} snapshot - Snapshot name
+       * @param {string} extension - Snapshot extension
        * @return {string} Custom snapshot path
        */
-      resolveSnapshotPath(file: string, snapshot: string): string {
-        return file + snapshot
+      resolveSnapshotPath(file: string, extension: string): string {
+        return path.resolve(
+          path.resolve(path.dirname(path.dirname(file)), '__snapshots__'),
+          path.basename(file).replace(/\.spec.tsx?/, '') + extension
+        )
       },
       restoreMocks: true,
       root: process.cwd(),
       setupFiles: ['./__tests__/setup/index.ts'],
       silent: false,
       snapshotFormat: {
-        printBasicPrototype: true
+        callToJSON: true,
+        min: false,
+        printFunctionName: true
       },
       testTimeout: 10 * 1000
     }

@@ -4,6 +4,7 @@
 # DIRECTORIES & FILES
 **/.gitignore
 **/.gitkeep
+**/*.snap
 .eslintcache
 .eslintignore
 .husky/_/*

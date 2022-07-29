@@ -1,6 +1,6 @@
 /**
  * @file RDT Plugin - Options
- * @module vite-plugin-react-docgen-typescript/Options
+ * @module vite-plugin-react-docgen-typescript/options
  */
 
 import type { SourceMapOptions } from 'magic-string'
@@ -34,13 +34,11 @@ interface Options extends ParserOptions {
   /**
    * Glob patterns matching files to exclude from parsing.
    *
-   * **Note**: Applied **after** {@link include}.
+   * @see https://github.com/micromatch/picomatch
    *
-   * @see https://github.com/micromatch/micromatch
-   *
-   * @default []
+   * @default ['**\/**.stories.tsx']
    */
-  exclude?: string[]
+  exclude?: (RegExp | string)[]
 
   /**
    * Apply additional processing to a `ComponentDoc` before `__docgenInfo` is
@@ -54,8 +52,6 @@ interface Options extends ParserOptions {
    * @param {string} code - Module code being transformed
    * @param {string} id - Path to module being transformed
    * @return {ComponentDoc | Promise<ComponentDoc>} Augmented `doc`
-   *
-   * @default doc=>doc
    */
   handler?(
     doc: ComponentDoc,
@@ -66,15 +62,14 @@ interface Options extends ParserOptions {
   /**
    * Glob patterns matching files to parse for docgen information.
    *
-   * @see https://github.com/micromatch/micromatch
+   * @see https://github.com/micromatch/picomatch
    *
-   * @default ['**.tsx']
+   * @default ['**\/**.tsx']
    */
-  include?: string[]
+  include?: (RegExp | string)[]
 
   /**
-   * Include [version 3 sourcemap][1] in final transform result for successfully
-   * parsed modules.
+   * Include [version 3 sourcemap][1] in transform result.
    *
    * [1]: https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit
    *

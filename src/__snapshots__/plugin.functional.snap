@@ -1,0 +1,126 @@
+// Vitest Snapshot v1
+
+exports[`functional:plugin > should not transform module if docgen info is missing 1`] = `null`;
+
+exports[`functional:plugin > should not transform module if id does not match include pattern 1`] = `undefined`;
+
+exports[`functional:plugin > should not transform module if id matches exclude pattern 1`] = `undefined`;
+
+exports[`functional:plugin > should transform module if id matches include pattern 1`] = `
+"/**
+ * @file Fixtures - Button
+ * @module fixtures/Button
+ */
+
+import {
+  forwardRef,
+  useState,
+  type ButtonHTMLAttributes,
+  type ForwardedRef
+} from 'react'
+import s, { css } from 'styled-components'
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /**
+   * Button background color.
+   *
+   * @default 'black'
+   */
+  $bg?: ButtonHTMLAttributes<HTMLButtonElement>['color']
+
+  /**
+   * Button text color.
+   *
+   * @default 'white'
+   */
+  $color?: ButtonHTMLAttributes<HTMLButtonElement>['color']
+
+  /**
+   * Button font size.
+   *
+   * @default '1.25rem'
+   */
+  $fontsize?: number | string
+
+  /**
+   * Mark button as disabled.
+   */
+  disabled?: boolean
+}
+
+interface CounterButtonProps extends ButtonProps {
+  /**
+   * Initial click count.
+   *
+   * @default 0
+   */
+  count?: number
+}
+
+/**
+ * Renders an HTML \`<button>\` element.
+ *
+ * @see https://developer.mozilla.org/docs/Web/HTML/Element/button
+ * @see https://developer.mozilla.org/docs/Web/API/HTMLButtonElement
+ *
+ * @visibleName Button
+ */
+const Button = s.button.attrs<ButtonProps>(p => ({
+  'aria-disabled': p.disabled ?? undefined,
+  'aria-hidden': p.hidden ?? undefined
+}))<ButtonProps>(p => {
+  return css\`
+    background-color: \${p.$bg};
+    color: \${p.$color};
+  \`
+})
+
+Button.defaultProps = {
+  $bg: 'black',
+  $color: 'white',
+  $fontsize: '1.25rem',
+  type: 'button'
+}
+
+/**
+ * Renders a button that displays how many times it has been clicked.
+ *
+ * @param {CounterButtonProps} [props={}] - Component props
+ * @param {ForwardedRef<HTMLButtonElement>} [ref] - \`<button>\` reference
+ * @return {JSX.Element} Counter button markup
+ */
+const CounterButton = forwardRef(function (
+  props: CounterButtonProps = {},
+  ref?: ForwardedRef<HTMLButtonElement>
+): JSX.Element {
+  const { count, ...rest } = props
+
+  const [clicks, setclicks] = useState<number>(count!)
+
+  /**
+   * Increases {@link clicks}.
+   *
+   * @return {void} Nothing when complete
+   */
+  const increment = (): void => setclicks(prev => prev + 1)
+
+  return (
+    <Button {...rest} onClick={increment} ref={ref}>
+      {clicks}
+    </Button>
+  )
+})
+
+CounterButton.displayName = 'CounterButton'
+CounterButton.defaultProps = {}
+
+export {
+  Button as default,
+  CounterButton,
+  type ButtonProps,
+  type CounterButtonProps
+}
+
+;Button.__docgenInfo={\\"tags\\":{\\"see\\":\\"https://developer.mozilla.org/docs/Web/HTML/Element/button\\\\nhttps://developer.mozilla.org/docs/Web/API/HTMLButtonElement\\",\\"visibleName\\":\\"Button\\"},\\"filePath\\":\\"\\",\\"description\\":\\"Renders an HTML \`<button>\` element.\\",\\"displayName\\":\\"Button\\",\\"methods\\":[],\\"props\\":{\\"ref\\":{\\"defaultValue\\":null,\\"description\\":\\"\\",\\"name\\":\\"ref\\",\\"parent\\":\\"_undefined_\\",\\"declarations\\":[],\\"required\\":false,\\"type\\":{\\"name\\":\\"((instance: HTMLButtonElement | null) => void) | RefObject<HTMLButtonElement> | null\\"},\\"tags\\":{}},\\"$bg\\":{\\"defaultValue\\":{\\"value\\":\\"black\\"},\\"description\\":\\"Button background color.\\",\\"name\\":\\"$bg\\",\\"parent\\":{\\"fileName\\":\\"\\",\\"name\\":\\"ButtonProps\\"},\\"declarations\\":[],\\"required\\":false,\\"type\\":{\\"name\\":\\"string\\"},\\"tags\\":{\\"default\\":\\"'black'\\"}},\\"$color\\":{\\"defaultValue\\":{\\"value\\":\\"white\\"},\\"description\\":\\"Button text color.\\",\\"name\\":\\"$color\\",\\"parent\\":{\\"fileName\\":\\"\\",\\"name\\":\\"ButtonProps\\"},\\"declarations\\":[],\\"required\\":false,\\"type\\":{\\"name\\":\\"string\\"},\\"tags\\":{\\"default\\":\\"'white'\\"}},\\"$fontsize\\":{\\"defaultValue\\":{\\"value\\":\\"1.25rem\\"},\\"description\\":\\"Button font size.\\",\\"name\\":\\"$fontsize\\",\\"parent\\":{\\"fileName\\":\\"\\",\\"name\\":\\"ButtonProps\\"},\\"declarations\\":[],\\"required\\":false,\\"type\\":{\\"name\\":\\"string | number\\"},\\"tags\\":{\\"default\\":\\"'1.25rem'\\"}},\\"theme\\":{\\"defaultValue\\":null,\\"description\\":\\"\\",\\"name\\":\\"theme\\",\\"parent\\":\\"_undefined_\\",\\"declarations\\":[],\\"required\\":false,\\"type\\":{\\"name\\":\\"any\\"},\\"tags\\":\\"_duplicate_[\\\\\\"props\\\\\\",\\\\\\"ref\\\\\\",\\\\\\"tags\\\\\\"]\\"},\\"as\\":{\\"defaultValue\\":null,\\"description\\":\\"\\",\\"name\\":\\"as\\",\\"parent\\":\\"_undefined_\\",\\"declarations\\":[],\\"required\\":false,\\"type\\":{\\"name\\":\\"undefined\\"},\\"tags\\":\\"_duplicate_[\\\\\\"props\\\\\\",\\\\\\"ref\\\\\\",\\\\\\"tags\\\\\\"]\\"},\\"forwardedAs\\":{\\"defaultValue\\":null,\\"description\\":\\"\\",\\"name\\":\\"forwardedAs\\",\\"parent\\":\\"_undefined_\\",\\"declarations\\":[],\\"required\\":false,\\"type\\":{\\"name\\":\\"undefined\\"},\\"tags\\":\\"_duplicate_[\\\\\\"props\\\\\\",\\\\\\"ref\\\\\\",\\\\\\"tags\\\\\\"]\\"}}}
+;CounterButton.__docgenInfo={\\"tags\\":{\\"param\\":\\"props - Component props\\\\nref - \`<button>\` reference\\",\\"return\\":\\"Counter button markup\\"},\\"filePath\\":\\"\\",\\"description\\":\\"Renders a button that displays how many times it has been clicked.\\",\\"displayName\\":\\"CounterButton\\",\\"methods\\":[],\\"props\\":{\\"count\\":{\\"defaultValue\\":{\\"value\\":\\"0\\"},\\"description\\":\\"Initial click count.\\",\\"name\\":\\"count\\",\\"parent\\":{\\"fileName\\":\\"\\",\\"name\\":\\"CounterButtonProps\\"},\\"declarations\\":[],\\"required\\":false,\\"type\\":{\\"name\\":\\"number\\"},\\"tags\\":{\\"default\\":\\"0\\"}},\\"$bg\\":{\\"defaultValue\\":{\\"value\\":\\"black\\"},\\"description\\":\\"Button background color.\\",\\"name\\":\\"$bg\\",\\"parent\\":{\\"fileName\\":\\"\\",\\"name\\":\\"ButtonProps\\"},\\"declarations\\":[],\\"required\\":false,\\"type\\":{\\"name\\":\\"string\\"},\\"tags\\":{\\"default\\":\\"'black'\\"}},\\"$color\\":{\\"defaultValue\\":{\\"value\\":\\"white\\"},\\"description\\":\\"Button text color.\\",\\"name\\":\\"$color\\",\\"parent\\":{\\"fileName\\":\\"\\",\\"name\\":\\"ButtonProps\\"},\\"declarations\\":[],\\"required\\":false,\\"type\\":{\\"name\\":\\"string\\"},\\"tags\\":{\\"default\\":\\"'white'\\"}},\\"$fontsize\\":{\\"defaultValue\\":{\\"value\\":\\"1.25rem\\"},\\"description\\":\\"Button font size.\\",\\"name\\":\\"$fontsize\\",\\"parent\\":{\\"fileName\\":\\"\\",\\"name\\":\\"ButtonProps\\"},\\"declarations\\":[],\\"required\\":false,\\"type\\":{\\"name\\":\\"string | number\\"},\\"tags\\":{\\"default\\":\\"'1.25rem'\\"}},\\"disabled\\":{\\"defaultValue\\":null,\\"description\\":\\"Mark button as disabled.\\",\\"name\\":\\"disabled\\",\\"parent\\":{\\"fileName\\":\\"\\",\\"name\\":\\"ButtonProps\\"},\\"declarations\\":[],\\"required\\":false,\\"type\\":{\\"name\\":\\"boolean\\"},\\"tags\\":{}}}}"
+`;

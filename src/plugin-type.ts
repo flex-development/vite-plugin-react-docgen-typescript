@@ -28,9 +28,17 @@ interface PluginReactDocgenTypeScript extends Plugin {
   /**
    * Parses `id` for component docgen info.
    *
-   * For a successfully parsed module, the final transform result will include
-   * a new source map and updated version of `code` that includes logic to
-   * attach a `__docgenInfo` property to all components in `id`.
+   * For successfully parsed and transformed modules, the function will return
+   * an updated version of `code` that includes logic to add a `__docgenInfo`
+   * property to each component exported from `id`. If `options.sourcemap` is
+   * truthy, the function will also return a [version 3 sourcemap][1].
+   *
+   * If `id` doesn't meet filtering requirements (set by `options.exclude` and
+   * `options.include`), the function will return `undefined`. If `id` does end
+   * up being parsed, but doesn't yield any docgen information, `null` will be
+   * returned instead.
+   *
+   * [1]: https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit
    *
    * @async
    *
