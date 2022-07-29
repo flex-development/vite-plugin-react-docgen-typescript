@@ -8882,26 +8882,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob-parent@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "glob-parent@npm:3.1.0"
-  dependencies:
-    is-glob: "npm:^3.1.0"
-    path-dirname: "npm:^1.0.0"
-  checksum: ac69a90527002c0ccf65b37de4a9107ff9443b51524c90c28a9139d74e5cd82e12a40c978b6f8ee66788915ebc48e083e1a79e9f06672caa93127f6b07d4879e
-  languageName: node
-  linkType: hard
-
-"glob-parent@npm:^5.1.2, glob-parent@npm:~5.1.2":
-  version: 5.1.2
-  resolution: "glob-parent@npm:5.1.2"
-  dependencies:
-    is-glob: "npm:^4.0.1"
-  checksum: 2a8fd4de469543f6160dbfff5c59950e39494fc8b692ca7e1d0a5564450dee53228370b43bcfdeda82c2f96b26de618ef8aa5ece28090fcd568c411b6148241d
-  languageName: node
-  linkType: hard
-
-"glob-parent@npm:^6.0.1":
+"glob-parent@npm:6.0.2":
   version: 6.0.2
   resolution: "glob-parent@npm:6.0.2"
   dependencies:
@@ -9991,7 +9972,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-glob@npm:^3.0.0, is-glob@npm:^3.1.0":
+"is-glob@npm:^3.0.0":
   version: 3.1.0
   resolution: "is-glob@npm:3.1.0"
   dependencies:
@@ -10000,7 +9981,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-glob@npm:^4.0.0, is-glob@npm:^4.0.1, is-glob@npm:^4.0.3, is-glob@npm:~4.0.1":
+"is-glob@npm:^4.0.0, is-glob@npm:^4.0.3, is-glob@npm:~4.0.1":
   version: 4.0.3
   resolution: "is-glob@npm:4.0.3"
   dependencies:
@@ -12455,13 +12436,6 @@ __metadata:
   version: 0.0.1
   resolution: "path-browserify@npm:0.0.1"
   checksum: 1be4c6604998b10452e2b962df85d6ffb0b7a95e42b0c37c62da0cfff5679cc901a7e9d941ee487aabafc021c52097914944719c0e38924183f767059c7dce4c
-  languageName: node
-  linkType: hard
-
-"path-dirname@npm:^1.0.0":
-  version: 1.0.2
-  resolution: "path-dirname@npm:1.0.2"
-  checksum: 3a1df8562a47f67e25407e6f6d8b022c474d69e9801898ffaa861af727c26c352afaaef5b01642d92f900b35c438c5eaa5101d5c274b6171b62aaa4c9ccc8deb
   languageName: node
   linkType: hard
 
