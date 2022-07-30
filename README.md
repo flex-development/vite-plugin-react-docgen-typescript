@@ -10,7 +10,7 @@
 ## Install
 
 ```sh
-yarn add -d @flex-development/vite-plugin-react-docgen-typescript
+yarn add -D @flex-development/vite-plugin-react-docgen-typescript
 ```
 
 ### GitHub Package Registry
@@ -39,6 +39,23 @@ npmScopes:
     npmRegistryServer: https://npm.pkg.github.com
 ```
 
+### Git
+
+For details on requesting a specific branch, commit, or tag, see
+[npm-install][7] or [Git - Protocols | Yarn][8].
+
+#### NPM
+
+```sh
+npm i -D flex-development/vite-plugin-react-docgen-typescript
+```
+
+#### Yarn
+
+```sh
+yarn add -D @flex-development/vite-plugin-react-docgen-typescript@flex-development/vite-plugin-react-docgen-typescript
+```
+
 ## Usage
 
 **TODO**: Update documentation.
@@ -61,3 +78,5 @@ npmScopes:
 [5]: https://vitejs.dev
 [6]:
   https://docs.github.com/en/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries
+[7]: https://docs.npmjs.com/cli/v8/commands/npm-install#description
+[8]: https://yarnpkg.com/features/protocols#git
