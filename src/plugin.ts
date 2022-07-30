@@ -25,8 +25,8 @@ import type PluginReactDocgenTypeScript from './plugin-type'
 const plugin = ({
   apply,
   componentNameResolver,
-  enforce = 'pre',
   customComponentTypes = [],
+  enforce = 'pre',
   exclude = ['**/**.stories.tsx'],
   handler,
   include = ['**/**.tsx'],

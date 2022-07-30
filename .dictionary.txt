@@ -39,6 +39,7 @@ rcmdnk
 safecrlf
 syncer
 telejson
+transclude
 tsnode
 tspaths
 vates
