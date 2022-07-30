@@ -4,16 +4,16 @@
  */
 
 /**
- * @type {string[]}
+ * @type {Record<string, string[]>}
  * @const extensions - ESLint extensions
  */
-const extensions = require('./.vscode/settings')['eslint.options'].extensions
+const eslint = require('./.vscode/settings.json')['eslint.options']
 
 module.exports = {
   /**
    * Fix code style.
    */
-  [`**/*.{${extensions.join(',')}}`]: ['yarn fix:lint', 'git add -A'],
+  [`**/*.{${eslint.extensions.join(',')}}`]: ['yarn fix:lint', 'git add -A'],
 
   /**
    * Fix formatting and check spelling.

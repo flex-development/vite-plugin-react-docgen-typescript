@@ -3,48 +3,14 @@
  * @see https://eslint.org/docs/user-guide/configuring
  */
 
-const { Linter, Rule } = require('eslint')
-
 /**
- * @type {Record<string, 0>}
- * @const RULES_OFF_JSDOC - All `jsdoc` rules turned off
- */
-const RULES_OFF_JSDOC = (() => {
-  /**
-   * @type {{ rules: Rule.RuleModule }}
-   * @const jsdoc - `eslint-plugin-jsdoc` module
-   */
-  const jsdoc = require('eslint-plugin-jsdoc')
-
-  // Turn off all eslint-plugin-jsdoc rules
-  return Object.keys(jsdoc.rules).reduce((acc, rule) => {
-    acc[`jsdoc/${rule}`] = 0
-    return acc
-  }, {})
-})()
-
-/**
- * @type {Record<string, 0>}
- * @const RULES_OFF_TYPESCRIPT - All `@typescript-eslint` rules turned off
- */
-const RULES_OFF_TYPESCRIPT = (() => {
-  const { rules } = require('@typescript-eslint/eslint-plugin')
-
-  // Turn off all @typescript-eslint rules
-  return Object.keys(rules).reduce((acc, rule) => {
-    acc[`@typescript-eslint/${rule}`] = 0
-    return acc
-  }, {})
-})()
-
-/**
- * @type {typeof import('tsconfig.json')}
+ * @type {import('tsconfig.json')}
  * @const tsconfig - Tsconfig object
  */
 const tsconfig = require('tsconfig/dist/tsconfig').loadSync(__dirname).config
 
 /**
- * @type {Linter.Config}
+ * @type {import('eslint').Linter.Config}
  * @const config - ESLint configuration object
  */
 const config = {
@@ -74,7 +40,7 @@ const config = {
       impliedStrict: true
     },
     emitDecoratorMetadata: tsconfig.compilerOptions.emitDecoratorMetadata,
-    extraFileExtensions: ['.mjs'],
+    extraFileExtensions: [],
     project: ['./tsconfig.json'],
     sourceType: 'module',
     tsconfigRootDir: __dirname,
@@ -98,7 +64,6 @@ const config = {
         readonly: 'array'
       }
     ],
-    '@typescript-eslint/await-thenable': 2,
     '@typescript-eslint/ban-ts-comment': [
       2,
       {
@@ -139,24 +104,8 @@ const config = {
       }
     ],
     '@typescript-eslint/consistent-type-definitions': 0,
-    '@typescript-eslint/consistent-type-exports': [
-      2,
-      {
-        fixMixedExportsWithInlineTypeSpecifier: true
-      }
-    ],
     '@typescript-eslint/consistent-type-imports': 0,
     '@typescript-eslint/default-param-last': 2,
-    '@typescript-eslint/dot-notation': [
-      2,
-      {
-        allowIndexSignaturePropertyAccess: false,
-        allowKeywords: true,
-        allowPattern: undefined,
-        allowPrivateClassPropertyAccess: false,
-        allowProtectedClassPropertyAccess: false
-      }
-    ],
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/explicit-member-accessibility': [
       2,
@@ -238,12 +187,6 @@ const config = {
     ],
     '@typescript-eslint/method-signature-style': [2, 'method'],
     '@typescript-eslint/no-array-constructor': 2,
-    '@typescript-eslint/no-base-to-string': [
-      2,
-      {
-        ignoredTypeNames: ['RegExp']
-      }
-    ],
     '@typescript-eslint/no-confusing-non-null-assertion': 0,
     '@typescript-eslint/no-confusing-void-expression': [
       2,
@@ -275,21 +218,12 @@ const config = {
         allowWithDecorator: true
       }
     ],
-    '@typescript-eslint/no-floating-promises': [
-      2,
-      {
-        ignoreIIFE: false,
-        ignoreVoid: true
-      }
-    ],
-    '@typescript-eslint/no-for-in-array': 2,
     '@typescript-eslint/no-implicit-any-catch': [
       2,
       {
         allowExplicitAny: false
       }
     ],
-    '@typescript-eslint/no-implied-eval': 2,
     '@typescript-eslint/no-inferrable-types': 0,
     '@typescript-eslint/no-invalid-this': [2, { capIsConstructor: true }],
     '@typescript-eslint/no-invalid-void-type': [
@@ -304,13 +238,6 @@ const config = {
     '@typescript-eslint/no-magic-numbers': 0,
     '@typescript-eslint/no-meaningless-void-operator': 0,
     '@typescript-eslint/no-misused-new': 2,
-    '@typescript-eslint/no-misused-promises': [
-      2,
-      {
-        checksConditionals: true,
-        checksVoidReturn: true
-      }
-    ],
     '@typescript-eslint/no-namespace': 0,
     '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 2,
     '@typescript-eslint/no-non-null-asserted-optional-chain': 0,
@@ -323,7 +250,6 @@ const config = {
         ignoreDeclarationMerge: true
       }
     ],
-    '@typescript-eslint/no-redundant-type-constituents': 2,
     '@typescript-eslint/no-require-imports': 2,
     '@typescript-eslint/no-restricted-imports': 0,
     '@typescript-eslint/no-shadow': 0,
@@ -334,36 +260,9 @@ const config = {
         allowedNames: ['self']
       }
     ],
-    '@typescript-eslint/no-throw-literal': 2,
     '@typescript-eslint/no-type-alias': 0,
-    '@typescript-eslint/no-unnecessary-boolean-literal-compare': [
-      2,
-      {
-        allowComparingNullableBooleansToFalse: true,
-        allowComparingNullableBooleansToTrue: true
-      }
-    ],
-    '@typescript-eslint/no-unnecessary-condition': [
-      2,
-      {
-        allowConstantLoopConditions: false,
-        allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false
-      }
-    ],
-    '@typescript-eslint/no-unnecessary-qualifier': 2,
-    '@typescript-eslint/no-unnecessary-type-arguments': 2,
-    '@typescript-eslint/no-unnecessary-type-assertion': [
-      2,
-      {
-        typesToIgnore: []
-      }
-    ],
     '@typescript-eslint/no-unnecessary-type-constraint': 2,
-    '@typescript-eslint/no-unsafe-argument': 2,
     '@typescript-eslint/no-unsafe-assignment': 0,
-    '@typescript-eslint/no-unsafe-call': 2,
-    '@typescript-eslint/no-unsafe-member-access': 2,
-    '@typescript-eslint/no-unsafe-return': 2,
     '@typescript-eslint/no-unused-expressions': [
       2,
       {
@@ -396,7 +295,6 @@ const config = {
     '@typescript-eslint/no-useless-constructor': 2,
     '@typescript-eslint/no-useless-empty-export': 2,
     '@typescript-eslint/no-var-requires': 2,
-    '@typescript-eslint/non-nullable-type-assertion-style': 2,
     '@typescript-eslint/object-curly-spacing': [2, 'always'],
     '@typescript-eslint/padding-line-between-statements': 0,
     '@typescript-eslint/prefer-as-const': 2,
@@ -411,22 +309,9 @@ const config = {
       }
     ],
     '@typescript-eslint/prefer-namespace-keyword': 2,
-    '@typescript-eslint/prefer-nullish-coalescing': [
-      2,
-      {
-        ignoreConditionalTests: true,
-        ignoreMixedLogicalExpressions: true
-      }
-    ],
-    '@typescript-eslint/prefer-optional-chain': 2,
     '@typescript-eslint/prefer-readonly-parameter-types': 0,
-    '@typescript-eslint/prefer-readonly': 2,
-    '@typescript-eslint/prefer-reduce-type-parameter': 2,
-    '@typescript-eslint/prefer-regexp-exec': 2,
     '@typescript-eslint/prefer-return-this-type': 0,
-    '@typescript-eslint/prefer-string-starts-ends-with': 2,
     '@typescript-eslint/prefer-ts-expect-error': 2,
-    '@typescript-eslint/promise-function-async': 2,
     '@typescript-eslint/quotes': [
       2,
       'single',
@@ -435,26 +320,6 @@ const config = {
         allowTemplateLiterals: true
       }
     ],
-    '@typescript-eslint/require-array-sort-compare': 2,
-    '@typescript-eslint/require-await': 2,
-    '@typescript-eslint/restrict-plus-operands': [
-      2,
-      {
-        allowAny: false,
-        checkCompoundAssignments: false
-      }
-    ],
-    '@typescript-eslint/restrict-template-expressions': [
-      2,
-      {
-        allowAny: false,
-        allowBoolean: true,
-        allowNullish: true,
-        allowNumber: true,
-        allowRegExp: true
-      }
-    ],
-    '@typescript-eslint/return-await': [2, 'in-try-catch'],
     '@typescript-eslint/semi': [2, 'never'],
     '@typescript-eslint/sort-type-union-intersection-members': 2,
     '@typescript-eslint/space-before-blocks': [2, 'always'],
@@ -467,20 +332,6 @@ const config = {
       }
     ],
     '@typescript-eslint/space-infix-ops': [2, { int32Hint: true }],
-    '@typescript-eslint/strict-boolean-expressions': [
-      2,
-      {
-        allowAny: false,
-        allowNullableBoolean: true,
-        allowNullableNumber: false,
-        allowNullableObject: true,
-        allowNullableString: true,
-        allowNumber: true,
-        allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false,
-        allowString: true
-      }
-    ],
-    '@typescript-eslint/switch-exhaustiveness-check': 2,
     '@typescript-eslint/triple-slash-reference': [
       2,
       {
@@ -498,7 +349,6 @@ const config = {
       }
     ],
     '@typescript-eslint/typedef': 0,
-    '@typescript-eslint/unbound-method': [2, { ignoreStatic: true }],
     '@typescript-eslint/unified-signatures': 2,
     'array-bracket-newline': [2, 'consistent'],
     'array-element-newline': [2, 'consistent'],
@@ -569,23 +419,6 @@ const config = {
       }
     ],
     'jsdoc/require-example': 0,
-    'jsdoc/require-file-overview': [
-      1,
-      {
-        tags: {
-          file: {
-            initialCommentsOnly: true,
-            mustExist: true,
-            preventDuplicates: true
-          },
-          module: {
-            initialCommentsOnly: true,
-            mustExist: true,
-            preventDuplicates: true
-          }
-        }
-      }
-    ],
     'jsdoc/require-hyphen-before-param-description': 1,
     'jsdoc/require-jsdoc': [
       1,
@@ -680,7 +513,6 @@ const config = {
     'no-ex-assign': 0,
     'no-extra-parens': 0,
     'no-extra-semi': 0,
-    'no-implied-eval': 0,
     'no-invalid-this': 0,
     'no-loop-func': 0,
     'no-loss-of-precision': 0,
@@ -744,7 +576,6 @@ const config = {
     'promise/prefer-await-to-then': 2,
     'promise/valid-params': 2,
     quotes: 0,
-    'require-await': 0,
     semi: 0,
     'sort-keys': [2, 'asc', { caseSensitive: true, minKeys: 2, natural: true }],
     'space-before-blocks': 0,
@@ -877,6 +708,346 @@ const config = {
   },
   overrides: [
     {
+      files: ['*.cjs', '*.mjs', '*.ts', '*.tsx'],
+      rules: {
+        '@typescript-eslint/await-thenable': 2,
+        '@typescript-eslint/consistent-type-exports': [
+          2,
+          {
+            fixMixedExportsWithInlineTypeSpecifier: true
+          }
+        ],
+        '@typescript-eslint/dot-notation': [
+          2,
+          {
+            allowIndexSignaturePropertyAccess: false,
+            allowKeywords: true,
+            allowPattern: undefined,
+            allowPrivateClassPropertyAccess: false,
+            allowProtectedClassPropertyAccess: false
+          }
+        ],
+        '@typescript-eslint/no-base-to-string': [
+          2,
+          {
+            ignoredTypeNames: ['RegExp']
+          }
+        ],
+        '@typescript-eslint/no-floating-promises': [
+          2,
+          {
+            ignoreIIFE: false,
+            ignoreVoid: true
+          }
+        ],
+        '@typescript-eslint/no-for-in-array': 2,
+        '@typescript-eslint/no-implied-eval': 2,
+        '@typescript-eslint/no-misused-promises': [
+          2,
+          {
+            checksConditionals: true,
+            checksVoidReturn: true
+          }
+        ],
+
+        '@typescript-eslint/no-redundant-type-constituents': 2,
+        '@typescript-eslint/no-throw-literal': 2,
+        '@typescript-eslint/no-unnecessary-boolean-literal-compare': [
+          2,
+          {
+            allowComparingNullableBooleansToFalse: true,
+            allowComparingNullableBooleansToTrue: true
+          }
+        ],
+        '@typescript-eslint/no-unnecessary-condition': [
+          2,
+          {
+            allowConstantLoopConditions: false,
+            allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false
+          }
+        ],
+        '@typescript-eslint/no-unnecessary-qualifier': 2,
+        '@typescript-eslint/no-unnecessary-type-arguments': 2,
+        '@typescript-eslint/no-unnecessary-type-assertion': [
+          2,
+          {
+            typesToIgnore: []
+          }
+        ],
+        '@typescript-eslint/no-unsafe-argument': 2,
+        '@typescript-eslint/no-unsafe-call': 2,
+        '@typescript-eslint/no-unsafe-member-access': 2,
+        '@typescript-eslint/no-unsafe-return': 2,
+        '@typescript-eslint/non-nullable-type-assertion-style': 2,
+        '@typescript-eslint/prefer-nullish-coalescing': [
+          2,
+          {
+            ignoreConditionalTests: true,
+            ignoreMixedLogicalExpressions: true
+          }
+        ],
+        '@typescript-eslint/prefer-optional-chain': 2,
+        '@typescript-eslint/prefer-readonly': 2,
+        '@typescript-eslint/prefer-reduce-type-parameter': 2,
+        '@typescript-eslint/prefer-regexp-exec': 2,
+        '@typescript-eslint/prefer-string-starts-ends-with': 2,
+        '@typescript-eslint/promise-function-async': 2,
+        '@typescript-eslint/require-array-sort-compare': 2,
+        '@typescript-eslint/require-await': 2,
+        '@typescript-eslint/restrict-plus-operands': [
+          2,
+          {
+            allowAny: false,
+            checkCompoundAssignments: false
+          }
+        ],
+        '@typescript-eslint/restrict-template-expressions': [
+          2,
+          {
+            allowAny: false,
+            allowBoolean: true,
+            allowNullish: true,
+            allowNumber: true,
+            allowRegExp: true
+          }
+        ],
+        '@typescript-eslint/return-await': [2, 'in-try-catch'],
+        '@typescript-eslint/strict-boolean-expressions': [
+          2,
+          {
+            allowAny: false,
+            allowNullableBoolean: true,
+            allowNullableNumber: false,
+            allowNullableObject: true,
+            allowNullableString: true,
+            allowNumber: true,
+            allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false,
+            allowString: true
+          }
+        ],
+        '@typescript-eslint/switch-exhaustiveness-check': 2,
+        '@typescript-eslint/unbound-method': [2, { ignoreStatic: true }],
+        'jsdoc/require-file-overview': [
+          1,
+          {
+            tags: {
+              file: {
+                initialCommentsOnly: true,
+                mustExist: true,
+                preventDuplicates: true
+              },
+              module: {
+                initialCommentsOnly: true,
+                mustExist: true,
+                preventDuplicates: true
+              }
+            }
+          }
+        ],
+        'no-implied-eval': 0,
+        'require-await': 0
+      }
+    },
+    {
+      files: ['*.cjs', '*.md/*.cjs', '*.mjs'],
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': 0,
+        '@typescript-eslint/no-implicit-any-catch': 0,
+        '@typescript-eslint/restrict-template-expressions': 0
+      }
+    },
+    {
+      files: ['*.cjs'],
+      rules: {
+        '@typescript-eslint/no-require-imports': 0,
+        '@typescript-eslint/no-var-requires': 0,
+        'unicorn/prefer-module': 0
+      }
+    },
+    {
+      files: ['*.cts', '*.d.ts', '*.ts', '*.tsx'],
+      rules: {
+        'no-undef': 0
+      }
+    },
+    {
+      files: ['*.cts'],
+      rules: {
+        '@typescript-eslint/no-require-imports': 0,
+        '@typescript-eslint/no-var-requires': 0,
+        'unicorn/prefer-module': 0
+      }
+    },
+    {
+      files: ['*.d.ts'],
+      rules: {
+        '@typescript-eslint/ban-types': 0,
+        '@typescript-eslint/lines-between-class-members': 0,
+        '@typescript-eslint/no-redundant-type-constituents': 0,
+        '@typescript-eslint/triple-slash-reference': 0,
+        'jsdoc/no-undefined-types': 0,
+        'jsdoc/require-file-overview': 0,
+        'no-var': 0,
+        'unicorn/filename-case': 0,
+        'unicorn/no-empty-file': 0,
+        'unicorn/no-keyword-prefix': 0
+      }
+    },
+    {
+      files: ['*.json'],
+      extends: ['plugin:jsonc/prettier'],
+      parser: require.resolve('jsonc-eslint-parser'),
+      plugins: ['jsonc'],
+      rules: {
+        'jsonc/no-bigint-literals': 2,
+        'jsonc/no-binary-expression': 2,
+        'jsonc/no-binary-numeric-literals': 2,
+        'jsonc/no-comments': 2,
+        'jsonc/no-escape-sequence-in-identifier': 2,
+        'jsonc/no-hexadecimal-numeric-literals': 2,
+        'jsonc/no-infinity': 2,
+        'jsonc/no-multi-str': 2,
+        'jsonc/no-nan': 2,
+        'jsonc/no-number-props': 2,
+        'jsonc/no-numeric-separators': 2,
+        'jsonc/no-octal': 0,
+        'jsonc/no-octal-escape': 2,
+        'jsonc/no-octal-numeric-literals': 2,
+        'jsonc/no-parenthesized': 2,
+        'jsonc/no-plus-sign': 2,
+        'jsonc/no-regexp-literals': 2,
+        'jsonc/no-sparse-arrays': 2,
+        'jsonc/no-template-literals': 2,
+        'jsonc/no-undefined-value': 2,
+        'jsonc/no-unicode-codepoint-escapes': 2,
+        'jsonc/no-useless-escape': 2,
+        'jsonc/sort-array-values': [
+          2,
+          {
+            order: { caseSensitive: true, type: 'asc' },
+            pathPattern: '^$'
+          }
+        ],
+        'jsonc/sort-keys': [
+          2,
+          {
+            order: [
+              'name',
+              'description',
+              'version',
+              'keywords',
+              'license',
+              'homepage',
+              'repository',
+              'bugs',
+              'author',
+              'contributors',
+              'publishConfig',
+              'type',
+              'files',
+              'exports',
+              'main',
+              'module',
+              'types',
+              'scripts',
+              'dependencies',
+              'devDependencies',
+              'optionalDependencies',
+              'peerDependencies',
+              'resolutions',
+              'engines',
+              'packageManager',
+              'readme'
+            ],
+            pathPattern: '^$'
+          },
+          {
+            order: { caseSensitive: true, type: 'asc' },
+            pathPattern: '^$'
+          }
+        ],
+
+        'jsonc/valid-json-number': 2,
+        'jsonc/vue-custom-block/no-parsing-error': 2
+      }
+    },
+    {
+      files: ['*.md'],
+      parser: require.resolve('eslint-plugin-markdownlint/parser'),
+      plugins: ['markdown', 'markdownlint'],
+      processor: 'markdown/markdown',
+      rules: Object.entries(require('./.markdownlint.cjs')).reduce((acc, e) => {
+        if (/^md\d+/i.test(e[0])) acc[`markdownlint/${e[0]}`] = [1, e[1]]
+        return acc
+      }, {})
+    },
+    {
+      files: ['*.yml'],
+      parser: require.resolve('yaml-eslint-parser'),
+      plugins: ['yml'],
+      rules: {
+        'yml/block-mapping': 2,
+        'yml/block-mapping-question-indicator-newline': [2, 'never'],
+        'yml/block-sequence': 2,
+        'yml/block-sequence-hyphen-indicator-newline': [2, 'never'],
+        'yml/flow-mapping-curly-newline': 2,
+        'yml/flow-mapping-curly-spacing': [
+          2,
+          'always',
+          {
+            arraysInObjects: false,
+            objectsInObjects: false
+          }
+        ],
+        'yml/flow-sequence-bracket-newline': 2,
+        'yml/flow-sequence-bracket-spacing': [
+          2,
+          'always',
+          {
+            arraysInArrays: false,
+            objectsInArrays: false,
+            singleValue: false
+          }
+        ],
+        'yml/indent': [2, 2],
+        'yml/key-name-casing': [
+          2,
+          {
+            SCREAMING_SNAKE_CASE: true,
+            camelCase: false,
+            'kebab-case': true,
+            snake_case: true
+          }
+        ],
+        'yml/key-spacing': 2,
+        'yml/no-empty-document': 0,
+        'yml/no-empty-key': 2,
+        'yml/no-empty-mapping-value': 0,
+        'yml/no-empty-sequence-entry': 2,
+        'yml/no-irregular-whitespace': 2,
+        'yml/no-multiple-empty-lines': [2, { max: 2, maxBOF: 0, maxEOF: 1 }],
+        'yml/no-tab-indent': 2,
+        'yml/plain-scalar': [2, 'always'],
+        'yml/quotes': [2, { avoidEscape: true, prefer: 'single' }],
+        'yml/require-string-key': 2,
+        'yml/sort-keys': [
+          2,
+          {
+            order: { caseSensitive: true, type: 'asc' },
+            pathPattern: '^$'
+          }
+        ],
+        'yml/sort-sequence-values': [
+          2,
+          {
+            order: { caseSensitive: true, type: 'asc' },
+            pathPattern: '^$'
+          }
+        ],
+        'yml/spaced-comment': 2
+      }
+    },
+    {
       files: ['**/__tests__/*.spec.*'],
       globals: {
         afterAll: true,
@@ -938,7 +1109,7 @@ const config = {
       }
     },
     {
-      files: ['.*.*'],
+      files: ['.*.{cjs,mjs,ts,tsx}'],
       rules: {
         'jsdoc/require-file-overview': [
           1,
@@ -955,216 +1126,8 @@ const config = {
       }
     },
     {
-      files: ['*.cjs', '*.js', '*.md/*.js', '*.mjs'],
-      rules: {
-        '@typescript-eslint/explicit-module-boundary-types': 0,
-        '@typescript-eslint/no-implicit-any-catch': 0,
-        '@typescript-eslint/no-unsafe-member-access': 0,
-        '@typescript-eslint/restrict-template-expressions': 0
-      }
-    },
-    {
-      files: ['*.cjs', '*.js', '*.md/*.js'],
-      rules: {
-        '@typescript-eslint/no-require-imports': 0,
-        '@typescript-eslint/no-var-requires': 0,
-        'unicorn/prefer-module': 0
-      }
-    },
-    {
-      files: ['*.cts', '*.d.ts', '*.ts', '*.tsx'],
-      rules: {
-        'no-undef': 0
-      }
-    },
-    {
-      files: ['*.cts'],
-      rules: {
-        '@typescript-eslint/no-require-imports': 0,
-        '@typescript-eslint/no-var-requires': 0,
-        'unicorn/prefer-module': 0
-      }
-    },
-    {
-      files: ['*.d.ts'],
-      rules: {
-        '@typescript-eslint/ban-types': 0,
-        '@typescript-eslint/lines-between-class-members': 0,
-        '@typescript-eslint/no-redundant-type-constituents': 0,
-        '@typescript-eslint/triple-slash-reference': 0,
-        'jsdoc/no-undefined-types': 0,
-        'jsdoc/require-file-overview': 0,
-        'no-var': 0,
-        'unicorn/filename-case': 0,
-        'unicorn/no-empty-file': 0,
-        'unicorn/no-keyword-prefix': 0
-      }
-    },
-    {
-      files: ['*.json'],
-      extends: ['plugin:jsonc/prettier'],
-      parser: require.resolve('jsonc-eslint-parser'),
-      parserOptions: {},
-      plugins: ['jsonc'],
-      rules: Object.assign({}, RULES_OFF_JSDOC, RULES_OFF_TYPESCRIPT, {
-        'jsonc/no-bigint-literals': 2,
-        'jsonc/no-binary-expression': 2,
-        'jsonc/no-binary-numeric-literals': 2,
-        'jsonc/no-comments': 2,
-        'jsonc/no-escape-sequence-in-identifier': 2,
-        'jsonc/no-hexadecimal-numeric-literals': 2,
-        'jsonc/no-infinity': 2,
-        'jsonc/no-multi-str': 2,
-        'jsonc/no-nan': 2,
-        'jsonc/no-number-props': 2,
-        'jsonc/no-numeric-separators': 2,
-        'jsonc/no-octal': 0,
-        'jsonc/no-octal-escape': 2,
-        'jsonc/no-octal-numeric-literals': 2,
-        'jsonc/no-parenthesized': 2,
-        'jsonc/no-plus-sign': 2,
-        'jsonc/no-regexp-literals': 2,
-        'jsonc/no-sparse-arrays': 2,
-        'jsonc/no-template-literals': 2,
-        'jsonc/no-undefined-value': 2,
-        'jsonc/no-unicode-codepoint-escapes': 2,
-        'jsonc/no-useless-escape': 2,
-        'jsonc/sort-array-values': [
-          2,
-          {
-            order: { caseSensitive: true, type: 'asc' },
-            pathPattern: '^$'
-          }
-        ],
-        'jsonc/sort-keys': [
-          2,
-          {
-            order: [
-              'name',
-              'description',
-              'version',
-              'homepage',
-              'repository',
-              'bugs',
-              'scripts',
-              'dependencies',
-              'devDependencies',
-              'optionalDependencies',
-              'peerDependencies',
-              'resolutions',
-              'engines',
-              'packageManager',
-              'readme',
-              'sideEffects'
-            ],
-            pathPattern: '^$'
-          },
-          {
-            order: { caseSensitive: true, type: 'asc' },
-            pathPattern: '^$'
-          }
-        ],
-
-        'jsonc/valid-json-number': 2,
-        'jsonc/vue-custom-block/no-parsing-error': 2
-      })
-    },
-    {
-      files: ['*.md'],
-      parser: require.resolve('eslint-plugin-markdownlint/parser'),
-      parserOptions: {},
-      plugins: ['markdown', 'markdownlint'],
-      processor: 'markdown/markdown',
-      rules: Object.entries(require('./.markdownlint.cjs')).reduce((acc, e) => {
-        if (/^md\d+/i.test(e[0])) acc[`markdownlint/${e[0]}`] = [1, e[1]]
-        return acc
-      }, {}),
-      overrides: [
-        {
-          files: ['*.md/*.js', '*.md/*.ts', '*.md/*.tsx'],
-          parser: require.resolve('@typescript-eslint/parser')
-        }
-      ]
-    },
-    {
-      files: ['*.yml'],
-      parser: require.resolve('yaml-eslint-parser'),
-      parserOptions: {},
-      plugins: ['yml'],
-      rules: Object.assign({}, RULES_OFF_JSDOC, RULES_OFF_TYPESCRIPT, {
-        'spaced-comment': 0,
-        'yml/block-mapping': 2,
-        'yml/block-mapping-question-indicator-newline': [2, 'never'],
-        'yml/block-sequence': 2,
-        'yml/block-sequence-hyphen-indicator-newline': [2, 'never'],
-        'yml/flow-mapping-curly-newline': 2,
-        'yml/flow-mapping-curly-spacing': [
-          2,
-          'always',
-          {
-            arraysInObjects: false,
-            objectsInObjects: false
-          }
-        ],
-        'yml/flow-sequence-bracket-newline': 2,
-        'yml/flow-sequence-bracket-spacing': [
-          2,
-          'always',
-          {
-            arraysInArrays: false,
-            objectsInArrays: false,
-            singleValue: false
-          }
-        ],
-        'yml/indent': [2, 2],
-        'yml/key-name-casing': [
-          2,
-          {
-            SCREAMING_SNAKE_CASE: true,
-            camelCase: false,
-            'kebab-case': true,
-            snake_case: true
-          }
-        ],
-        'yml/key-spacing': 2,
-        'yml/no-empty-document': 0,
-        'yml/no-empty-key': 2,
-        'yml/no-empty-mapping-value': 0,
-        'yml/no-empty-sequence-entry': 2,
-        'yml/no-irregular-whitespace': 2,
-        'yml/no-multiple-empty-lines': [2, { max: 2, maxBOF: 0, maxEOF: 1 }],
-        'yml/no-tab-indent': 2,
-        'yml/plain-scalar': [2, 'always'],
-        'yml/quotes': [2, { avoidEscape: true, prefer: 'single' }],
-        'yml/require-string-key': 2,
-        'yml/sort-keys': [
-          2,
-          {
-            order: { caseSensitive: true, type: 'asc' },
-            pathPattern: '^$'
-          }
-        ],
-        'yml/sort-sequence-values': [
-          2,
-          {
-            order: { caseSensitive: true, type: 'asc' },
-            pathPattern: '^$'
-          }
-        ],
-        'yml/spaced-comment': 2
-      })
-    },
-    {
-      files: ['tsconfig*.json'],
-      rules: {
-        'jsonc/no-comments': 0
-      }
-    },
-    {
       files: ['.eslintrc.*', '.lintstagedrc.cjs'],
       rules: {
-        '@typescript-eslint/no-unsafe-call': 0,
-        '@typescript-eslint/no-unsafe-member-access': 0,
         'sort-keys': 0
       }
     },
@@ -1185,6 +1148,12 @@ const config = {
       files: ['.github/workflows/no-response-handler.yml', '.yarnrc.yml'],
       rules: {
         'yml/key-name-casing': 0
+      }
+    },
+    {
+      files: ['tsconfig*.json'],
+      rules: {
+        'jsonc/no-comments': 0
       }
     }
   ],
@@ -1252,10 +1221,6 @@ const config = {
         var: 'var',
         yields: 'yield'
       }
-    },
-    utils: {
-      RULES_OFF_JSDOC,
-      RULES_OFF_TYPESCRIPT
     }
   }
 }
