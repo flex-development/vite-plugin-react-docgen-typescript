@@ -67,7 +67,7 @@
       "icon": "commitlint"
     },
     {
-      "extensions": [".eslintrc.base.cjs", ".eslintrc.react.cjs"],
+      "extensions": [".eslintrc.base.cjs"],
       "format": "svg",
       "icon": "eslint"
     },

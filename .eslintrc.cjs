@@ -9,7 +9,17 @@
  */
 const config = {
   root: true,
-  extends: ['./.eslintrc.base.cjs', './.eslintrc.react.cjs'],
+  extends: ['./.eslintrc.base.cjs', 'plugin:react/recommended'],
+  plugins: ['react'],
+  rules: {
+    'react/display-name': 2,
+    'react/jsx-filename-extension': [2, { extensions: ['.tsx'] }],
+    'react/jsx-fragments': 0,
+    'react/jsx-uses-react': 0,
+    'react/prop-types': 0,
+    'react/react-in-jsx-scope': 0,
+    'react/self-closing-comp': 1
+  },
   overrides: [
     ...require('./.eslintrc.base.cjs').overrides,
     {
@@ -42,7 +52,12 @@ const config = {
         'unicorn/prefer-export-from': 0
       }
     }
-  ]
+  ],
+  settings: {
+    react: {
+      version: require('./package.json').devDependencies.react
+    }
+  }
 }
 
 module.exports = config

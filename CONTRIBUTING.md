@@ -219,7 +219,6 @@ See [`.commitlintrc.ts`](.commitlintrc.ts) for a review of commit rules.
 
 - [`.eslintrc.base.cjs`](.eslintrc.base.cjs)
 - [`.eslintrc.cjs`](.eslintrc.cjs)
-- [`.eslintrc.web.cjs`](.eslintrc.web.cjs)
 - [`.eslintignore`](.eslintignore)
 
 #### Prettier Configuration
