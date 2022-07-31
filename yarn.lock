@@ -2244,7 +2244,7 @@ __metadata:
     "@types/eslint": "npm:8.4.5"
     "@types/is-ci": "npm:3.0.0"
     "@types/mvdan-sh": "npm:0.10.0"
-    "@types/node": "npm:16.11.46"
+    "@types/node": "npm:16.11.47"
     "@types/node-notifier": "npm:8.0.2"
     "@types/prettier": "npm:2.6.4"
     "@types/react": "npm:18.0.15"
@@ -3709,14 +3709,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:16.11.46":
-  version: 16.11.46
-  resolution: "@types/node@npm:16.11.46"
-  checksum: 1eda2f400383f9170db57a9bcbb22823800626b94cd1d44562955284b200e31ab98cdcbaa8086f6f8a4943c75852d12f54e5b3a6148ee3074eafbb689e236694
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^14.0.10 || ^16.0.0, @types/node@npm:^14.14.20 || ^16.0.0":
+"@types/node@npm:16.11.47, @types/node@npm:^14.0.10 || ^16.0.0, @types/node@npm:^14.14.20 || ^16.0.0":
   version: 16.11.47
   resolution: "@types/node@npm:16.11.47"
   checksum: caa089e09f3a426d3e2f6f9d286fb0015361bb526b3ab66c087276e51d3f853af2613d0bb00e0a08f86c2905755bbe91a2f44201ea2b37beb184056ef5cfbe5d
