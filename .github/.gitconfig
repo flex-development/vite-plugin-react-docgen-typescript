@@ -33,11 +33,11 @@ chp = "!f() { git ch $@; git pull; }; f"
 # commit with message
 cm = "!f() { git commit -s -m \"$@\"; }; f"
 
-# perform initial commit and push to branch next
-launch = "!f() { git chore \"first commit\"; git b -m next; git rao $1; git puo next; }; f"
+# perform initial commit and push to branch main
+launch = "!f() { git chore \"first commit\"; git b -m main; git rao $1; git puo main; }; f"
 
-# create new local repo, perform initial commit, and push to branch next
-launchwithinit = "!f() { git init; git chore \"first commit\"; git b -m next; git rao $1; git puo next; }; f"
+# create new local repo, perform initial commit, and push to branch main
+launchwithinit = "!f() { git init; git chore \"first commit\"; git b -m main; git rao $1; git puo main; }; f"
 
 # tell git to start tracking branch and push to origin
 puo = "!f() { git push origin --no-verify -u $@; }; f"
@@ -56,20 +56,17 @@ ulc = "!f() { git reset head~1 --soft; }; f"
 
 # aliases - branch naming conventions
 [alias]
-# create a new bugfix branch and push upstream
-chbb = "!f() { git chb bugfix/$@; }; f"
+# create new bugfix (feature) branch and push upstream
+chbb = "!f() { git chb feat/fix/$@; }; f"
 
-# create a new hotfix branch and push upstream
+# create new hotfix branch and push upstream
 chbh = "!f() { git chb hotfix/$@; }; f"
 
-# create a new feature branch and push upstream
+# create new feature branch and push upstream
 chbf = "!f() { git chb feat/$@; }; f"
 
-# create a new release branch and push upstream
+# create new release branch and push upstream
 chbr = "!f() { git chb release/$@; }; f"
-
-# create a new support branch and push upstream
-chbs = "!f() { git chb support/$@; }; f"
 
 # aliases - conventional commits
 # see: https://conventionalcommits.org
@@ -151,14 +148,13 @@ safecrlf = false
 feature = feat/
 hotfix = hotfix/
 release = release/
-support = support/
-versiontag = v
+support = feat/fix/
 
 [gpg]
 program = /usr/local/bin/gpg
 
 [init]
-defaultBranch = next
+defaultBranch = main
 
 [pull]
 rebase = true

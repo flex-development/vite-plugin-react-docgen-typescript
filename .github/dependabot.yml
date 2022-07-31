@@ -19,7 +19,7 @@ updates:
     pull-request-branch-name:
       separator: '-'
     rebase-strategy: auto
-    target-branch: next
+    target-branch: main
   - package-ecosystem: npm
     directory: /
     schedule:
@@ -38,5 +38,5 @@ updates:
     pull-request-branch-name:
       separator: '-'
     rebase-strategy: auto
-    target-branch: next
+    target-branch: main
     versioning-strategy: increase

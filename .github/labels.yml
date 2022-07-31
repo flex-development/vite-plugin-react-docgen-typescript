@@ -58,7 +58,7 @@
   color: e7034b
 
 - name: status:fixed
-  description: fixed and merged into next, but not yet released
+  description: fixed, but not released
   color: e7034b
 
 - name: status:help-wanted
@@ -74,7 +74,7 @@
   color: e7034b
 
 - name: status:merged
-  description: merged into next, but not into main (or released)
+  description: merged, but not released
   color: e7034b
 
 - name: status:needs-triage
@@ -82,7 +82,7 @@
   color: e7034b
 
 - name: status:released
-  description: merged into next, main, and released
+  description: merged and released
   color: e7034b
 
 - name: status:stale
