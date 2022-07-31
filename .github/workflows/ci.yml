@@ -12,7 +12,7 @@ on:
   pull_request_target:
   push:
     branches:
-      - next
+      - main
   workflow_dispatch:
 jobs:
   ci:

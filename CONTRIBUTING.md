@@ -138,36 +138,31 @@ must confront the following criteria:
 
 ### Branching Model
 
-- Development: `next`
-- Production: `main`
+This project follows a [Trunk Based Development][6] workflow, specifically the
+[short-lived branch style][7].
 
-### Branch Prefixes
+- Trunk Branch: `main`
+- Short-Lived Branches: `feat/*`, `hotfix/*`, `release/*`
+
+#### Branch Naming Conventions
 
 When creating a new branch, the name should match the following format:
 
 ```zsh
-[prefix]/<github-username>/<issue-number>-<branch_name>
- │        │                 │              │
- │        │                 │              └─⫸ a short, memorable name (possibly the future PR title)
- │        │                 │
- │        │                 └─⫸ check github issue
+[prefix]/<issue-number>-<branch_name>
+ │        │              │
+ │        │              │
+ │        │              │
+ │        │              └─⫸ a short, memorable name
  │        │
- │        └─⫸ your github username
+ │        └─⫸ check github issue
  │
- └─⫸ bugfix|feat|hotfix|release|support
+ └─⫸ feat|feat/fix|hotfix|release
 ```
-
-For example:
-
-```zsh
-git chbf $GIT_USERNAME/4-blog-layout
-```
-
-will create a new branch titled `feat/<your-github-username>/4-blog-layout`.
 
 ### Commit Messages
 
-This project follows [Conventional Commit][6] standards and uses [commitlint][7]
+This project follows [Conventional Commit][8] standards and uses [commitlint][9]
 to enforce those standards.
 
 This means every commit must conform to the following format:
@@ -206,14 +201,14 @@ This means every commit must conform to the following format:
 
 e.g:
 
-- `git docs 'update contributing guide'` -> `docs: update contributing guide`
-- `git ac 'refactor(components)!: Graph'` -> `refactor(components)!: Graph`
+- `docs: install and usage`
+- `refactor(components)!: Graph`
 
-See [`.commitlintrc.ts`](.commitlintrc.ts) for a review of commit rules.
+See [`.commitlintrc.ts`](.commitlintrc.ts) to view all commit guidelines.
 
 ### Code Style
 
-[Prettier][8] is used to format code and [ESLint][9] to lint files.
+[Prettier][10] is used to format code and [ESLint][11] to lint files.
 
 #### ESLint Configuration
 
@@ -232,18 +227,18 @@ Source code is located in [`src`](src) directory.
 
 ### Documentation
 
-- JavaScript & TypeScript: [JSDoc][10]; linted with [`eslint-plugin-jsdoc`][11]
+- JavaScript & TypeScript: [JSDoc][12]; linted with [`eslint-plugin-jsdoc`][13]
 
 Before making a pull request, be sure your code is well documented, as it will
 be part of your code review.
 
 ### Testing
 
-This project uses [Vitest][12] to run tests.
+This project uses [Vitest][14] to run tests.
 
 [Husky](#contributing-code) is configured to run tests against changed files.
 
-Be sure to use [`it.skip`][13] or [`it.todo`][14] where appropriate.
+Be sure to use [`it.skip`][15] or [`it.todo`][16] where appropriate.
 
 #### Running Tests
 
@@ -254,8 +249,8 @@ Be sure to use [`it.skip`][13] or [`it.todo`][14] where appropriate.
 ### Getting Help
 
 If you need help, make note of any issues in their respective files. Whenever
-possible, create a test to reproduce the error. Make sure to label your issue as
-`type:question` and `status:help-wanted`.
+possible, create a test to reproduce the error. If you need help with a test,
+don't forget to use [`it.skip`][15] and/or [`it.todo`][16].
 
 ## Labels
 
@@ -281,33 +276,32 @@ re-visited, open a new issue. A well-written issue has the following traits:
 - contains a minimal, inlined code example (if applicable)
 - includes links to related articles and documentation (if any)
 
-## Pull Requests & Code Reviews
+## Pull Requests
 
-When you're ready to have your changes reviewed, open a pull request against the
-`next` branch.
+When you're ready to submit your changes, open a pull request (PR) against
+`main`:
+
+```sh
+https://github.com/flex-development/vite-plugin-react-docgen-typescript/compare/main...$branch
+```
+
+where `$branch` is the name of the branch you'd like to merge into `main`.
 
 Every PR you open should:
 
-- use [**this template**](.github/PULL_REQUEST_TEMPLATE.md)
+- follow [**this template**](.github/PULL_REQUEST_TEMPLATE.md)
+- [be titled appropriately](#pull-request-titles)
 - be assigned to yourself
 - be [labeled](#labels) appropriately
-- reference it's tracking issue
 
-### Pull Request URL Format
+**Note**: All PRs are subject to code reviews before being merged into `main`.
+If any changes are requested, they'll need to be implemented before the PR is
+approved and merged.
 
-```zsh
-https://github.com/flex-development/vite-plugin-react-docgen-typescript/compare/next...<branch>
-```
+### Pull Request Titles
 
-where `<branch>` is the name of the branch you'd like to merge into `next`.
-
-### Code Reviews
-
-All pull requests are subject to code reviews before being merged into `next`
-and `main`. During code reviews, code-style and documentation will be reviewed.
-
-If any changes are requested, those changes will need to be implemented and
-approved before the pull request is merged.
+To keep in line with [commit message standards](#commit-messages) after PRs are
+merged, PR titles are expected to adhere to the same rules.
 
 ## Merge Strategies
 
@@ -317,16 +311,21 @@ are enabled.
 - **create a merge commit**: PR has multiple commits that are not grouped
 - **squash and merge**: PR has one commit or a group of multiple commits
 
-When merging, please make sure to use the following commit message format:
+Make sure to follow [commit message standards](#commit-messages):
 
-```txt
-<type>[optional scope]: <pull-request-title> (#pull-request-n)
- │     │                │
- │     │                └─⫸ check your pull request
+```zsh
+<type>[optional scope][!]: <pull-request-title> (#pull-request-n)
+ │     │               │    │                   │
+ │     │               │    │                   │
+ │     │               │    │                   └─⫸ check your pull request
+ │     │               │    │
+ │     │               │    └─⫸ lowercase title
+ │     │               │
+ │     │               └─⫸ optional breaking change flag
  │     │
  │     └─⫸ see .commitlintrc.ts
  │
- └─⫸ build|ci|chore|docs|feat|fix|merge|perf|refactor|release|revert|style|test|wip
+ └─⫸ build|ci|chore|docs|feat|fix|perf|refactor|release|revert|style|test
 ```
 
 e.g:
@@ -337,9 +336,9 @@ e.g:
 
 ## Releasing
 
-> Note: Package deployments and releases are executed via GitHub workflow. This
-> is so invalid or malicious versions cannot be published without merging those
-> changes into `next` first.
+> Note: Package and release publication is executed via GitHub workflow.\
+> This is so invalid or malicious versions cannot be published without merging those
+> changes into `main` first.
 
 Before releasing, the following steps must be completed:
 
@@ -348,18 +347,14 @@ Before releasing, the following steps must be completed:
    - where `*` is `<package.json#name-no-scope>@<new-version>`
      - e.g: `vite-plugin-react-docgen-typescript@1.1.0`
    - branch naming conventions **must be followed exactly**. the branch name is
-     used to create distribution tags, locate drafted releases, and generate the
-     correct workspace publish command
+     used to create distribution tags, and generate the correct workspace
+     publish command
    - `git chbr vite-plugin-react-docgen-typescript@<new-version>`
 3. Decide what version bump the release needs (major, minor, patch)
-   - versioning
-     - `yarn release` (determines [bumps based on commits][6])
-     - `yarn release --first-release`
-     - `yarn release --release-as major`
-     - `yarn release --release-as minor`
-     - `yarn release --release-as patch`
-   - a new release will be drafted
-4. Open new PR from `release/*` into `next`
+   - `yarn release major`
+   - `yarn release minor`
+   - `yarn release patch`
+4. Open new PR from `release/*` into `main`
    - PR title: `release: <package.json#name>@<new-version>`
      - e.g:
        `release: @flex-development/vite-plugin-react-docgen-typescript@1.1.0`
@@ -369,13 +364,13 @@ Before releasing, the following steps must be completed:
        - e.g:
          `release: @flex-development/vite-plugin-react-docgen-typescript@1.1.0 (#3)`
    - once PR is merged, deployment workflow will be triggered
-   - PR reviewer should make sure workflow completes all jobs as expected
+   - PR reviewer should make sure workflow completes all jobs successfully
      - if successful, the workflow will:
-       - wait for the [`ci`](.github/workflows/ci.yml) job to succeed
-       - publish package to [GitHub Package Registry][15] and [NPM][16]
-       - update production branch (merge branch `next` into `main`)
-       - publish drafted release
-   - PR reviewer should go through PR's linked issues and:
+       - create and push new tag
+       - build and pack project
+       - create and publish github release
+       - publish package to [GitHub Package Registry][17] and [NPM][18]
+   - PR reviewer should go through the PR's linked issues and:
      - add `status:merged` label
      - add `status:released` label
 
@@ -385,14 +380,16 @@ Before releasing, the following steps must be completed:
 [3]: https://yarnpkg.com/getting-started
 [4]: https://yarnpkg.com/advanced/lifecycle-scripts#environment-variables
 [5]: https://github.com/typicode/husky
-[6]: https://conventionalcommits.org
-[7]: https://github.com/conventional-changelog/commitlint
-[8]: https://prettier.io
-[9]: https://eslint.org
-[10]: https://jsdoc.app
-[11]: https://github.com/gajus/eslint-plugin-jsdoc
-[12]: https://vitest.dev
-[13]: https://vitest.dev/api/#test-skip
-[14]: https://vitest.dev/api/#test-todo
-[15]: https://github.com/features/packages
-[16]: https://npmjs.com
+[6]: https://trunkbaseddevelopment.com
+[7]: https://trunkbaseddevelopment.com/styles/#short-lived-feature-branches
+[8]: https://conventionalcommits.org
+[9]: https://github.com/conventional-changelog/commitlint
+[10]: https://prettier.io
+[11]: https://eslint.org
+[12]: https://jsdoc.app
+[13]: https://github.com/gajus/eslint-plugin-jsdoc
+[14]: https://vitest.dev
+[15]: https://vitest.dev/api/#test-skip
+[16]: https://vitest.dev/api/#test-todo
+[17]: https://github.com/features/packages
+[18]: https://npmjs.com

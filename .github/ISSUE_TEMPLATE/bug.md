@@ -2,7 +2,7 @@
 name: Bug report
 about: Spot an error? Create a bug report
 title: '🐛 '
-labels: 'type:fix,status:needs-triage'
+labels: 'status:needs-triage,type:fix'
 assignees: ''
 ---
 
