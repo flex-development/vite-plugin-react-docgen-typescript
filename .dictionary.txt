@@ -36,6 +36,7 @@ ohmyzsh
 pdel
 picomatch
 rcmdnk
+rickstaa
 safecrlf
 syncer
 telejson

@@ -1000,15 +1000,7 @@ const config = {
           }
         ],
         'yml/flow-sequence-bracket-newline': 2,
-        'yml/flow-sequence-bracket-spacing': [
-          2,
-          'always',
-          {
-            arraysInArrays: false,
-            objectsInArrays: false,
-            singleValue: false
-          }
-        ],
+        'yml/flow-sequence-bracket-spacing': 2,
         'yml/indent': [2, 2],
         'yml/key-name-casing': [
           2,

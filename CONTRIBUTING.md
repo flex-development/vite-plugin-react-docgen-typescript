@@ -343,18 +343,13 @@ e.g:
 Before releasing, the following steps must be completed:
 
 1. Schedule a code freeze
-2. Create new `release/*` branch
-   - where `*` is `<package.json#name-no-scope>@<new-version>`
-     - e.g: `vite-plugin-react-docgen-typescript@1.1.0`
-   - branch naming conventions **must be followed exactly**
-     - branch names are used to create tags and generate publish commands
-   - `git chbr vite-plugin-react-docgen-typescript@<new-version>`
-3. Decide what version bump the release needs (major, minor, patch)
+2. Decide what version bump the package needs (major, minor, or patch)
    - `yarn release major`
    - `yarn release minor`
    - `yarn release patch`
-4. Open new PR from `release/*` into `main`
-   - PR title: `release: <package.json#name>@<new-version>`
+3. Open a new PR from `release/*` into `main`
+   - do **not** change the PR title
+     - should match `release: <package.json#name>@<new-version>`
      - e.g:
        `release: @flex-development/vite-plugin-react-docgen-typescript@1.1.0`
    - link all issues being released
@@ -365,8 +360,8 @@ Before releasing, the following steps must be completed:
    - once PR is merged, deployment workflow will be triggered
    - PR reviewer should make sure workflow completes all jobs successfully
      - if successful, the workflow will:
+       - pack project
        - create and push new tag
-       - build and pack project
        - create and publish github release
        - publish package to [GitHub Package Registry][17] and [NPM][18]
    - PR reviewer should go through the PR's linked issues and:
