@@ -346,9 +346,8 @@ Before releasing, the following steps must be completed:
 2. Create new `release/*` branch
    - where `*` is `<package.json#name-no-scope>@<new-version>`
      - e.g: `vite-plugin-react-docgen-typescript@1.1.0`
-   - branch naming conventions **must be followed exactly**. the branch name is
-     used to create distribution tags, and generate the correct workspace
-     publish command
+   - branch naming conventions **must be followed exactly**
+     - branch names are used to create tags and generate publish commands
    - `git chbr vite-plugin-react-docgen-typescript@<new-version>`
 3. Decide what version bump the release needs (major, minor, patch)
    - `yarn release major`
