@@ -80,7 +80,7 @@
     "postpublish": "toggle-scripts +prepack",
     "prepack": "toggle-scripts -postinstall && yarn build",
     "prepublishOnly": "toggle-scripts -prepack",
-    "release": "echo \"todo: yarn release\" && exit 0",
+    "release": "bash ./scripts/release.sh",
     "test": "NODE_ENV=test vitest run",
     "test:cov": "yarn test --coverage",
     "test:watch": "vitest"
