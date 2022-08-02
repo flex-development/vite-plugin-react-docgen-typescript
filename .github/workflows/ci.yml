@@ -20,7 +20,6 @@ jobs:
     env:
       GH_PAT: ${{ secrets.PAT_GPR_ADMIN }}
       NODE_AUTH_TOKEN: ${{ secrets.PAT_GPR_ADMIN }}
-      NODE_NO_WARNINGS: 1
       NPM_TOKEN: ${{ secrets.NPM_TOKEN_ADMIN }}
     strategy:
       matrix:
@@ -32,7 +31,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
       - id: node
-        name: Setup Node ${{ matrix.node }}
+        name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
@@ -40,6 +39,8 @@ jobs:
       - id: yarn
         name: Install dependencies
         run: yarn --immutable
+        env:
+          HUSKY: 0
       - id: format
         name: Check code formatting
         run: yarn check:format
@@ -54,10 +55,12 @@ jobs:
         run: yarn test
         env:
           NODE_ENV: test
+          NODE_NO_WARNINGS: 1
           NODE_OPTIONS: --es-module-specifier-resolution=node
       - id: pack
-        name: Build and pack
+        name: Pack project
         run: yarn pack -o %s-%v.tgz
         env:
-          NODE_OPTIONS: --es-module-specifier-resolution=node
           NODE_ENV: production
+          NODE_NO_WARNINGS: 1
+          NODE_OPTIONS: --es-module-specifier-resolution=node

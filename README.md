@@ -112,9 +112,6 @@ export default config
 
 ### Storybook
 
-See [`.storybook/main.ts`][10] for example usage in a real Storybook project or
-check out the snippet below.
-
 ```typescript
 /**
  * @file Storybook Main
@@ -200,9 +197,9 @@ export default config
 ### Why Vite Only?
 
 Both `options.apply` and `options.enforce` are specific to the Vite Plugin API
-(see [Conditional Application][12] and [Plugin Ordering][13]).
+(see [Conditional Application][10] and [Plugin Ordering][11]).
 
-Future feature updates will also make use of [Vite specific hooks][14].
+Future feature updates will also make use of [Vite specific hooks][12].
 
 ## Built With
 
@@ -222,9 +219,6 @@ Future feature updates will also make use of [Vite specific hooks][14].
 [8]: https://yarnpkg.com/features/protocols#git
 [9]:
   https://github.com/styleguidist/react-docgen-typescript/blob/v2.2.2/src/parser.ts#L83-L94
-[10]:
-  https://github.com/flex-development/flexcharts/blob/next/.storybook/main.ts
-[11]: https://vitejs.dev/guide/api-plugin
-[12]: https://vitejs.dev/guide/api-plugin.html#conditional-application
-[13]: https://vitejs.dev/guide/api-plugin.html#plugin-ordering
-[14]: https://vitejs.dev/guide/api-plugin.html#vite-specific-hooks
+[10]: https://vitejs.dev/guide/api-plugin.html#conditional-application
+[11]: https://vitejs.dev/guide/api-plugin.html#plugin-ordering
+[12]: https://vitejs.dev/guide/api-plugin.html#vite-specific-hooks

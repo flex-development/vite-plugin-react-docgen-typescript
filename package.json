@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/vite-plugin-react-docgen-typescript",
   "description": "A react-docgen-typescript plugin for Vite",
-  "version": "0.0.0",
+  "version": "1.0.0-beta",
   "keywords": [
     "docgen",
     "react",
@@ -75,7 +75,7 @@
     "fix:dedupe": "yarn dedupe --strategy=highest",
     "fix:format": "prettier --write .",
     "fix:lint": "yarn check:lint --fix",
-    "postinstall": "is-ci || chmod +x .husky/* && husky install",
+    "postinstall": "chmod +x .husky/* && husky install",
     "postpack": "toggle-scripts +postinstall",
     "postpublish": "toggle-scripts +prepack",
     "prepack": "toggle-scripts -postinstall && yarn build",

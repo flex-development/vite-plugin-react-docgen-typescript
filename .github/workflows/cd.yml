@@ -5,8 +5,6 @@
 # - https://github.com/actions/github-script
 # - https://github.com/actions/checkout
 # - https://github.com/actions/setup-node
-# - https://github.com/actions/upload-artifact
-# - https://github.com/actions/download-artifact
 # - https://github.com/rickstaa/action-create-tag
 # - https://docs.github.com/en/actions/using-workflows/using-github-cli-in-workflows
 
@@ -56,18 +54,14 @@ jobs:
             const artifact_name = `${workspace.replace('/', '-')}-${version}`
             const artifact_path = `./${artifact_name}.tgz`
 
-            let [, dist_tag = ''] = version.split('-')
-
-            if (dist_tag) {
-              if (dist_tag.includes('.')) dist_tag = dist_tag.split('.')[0]
-              dist_tag = `--tag ${dist_tag}`.trim()
-            }
+            let dist_tag = version.match(/(?!-)([a-z]+)/)?.[0].trim() ?? ''
+            if (dist_tag) dist_tag = `--tag ${dist_tag}`
 
             core.setOutput('artifact-name', artifact_name)
             core.setOutput('artifact-path', artifact_path)
             core.setOutput('dist-tag', dist_tag)
-            core.setOutput('message', `release: ${workspace}@${version}`)
-            core.setOutput('tag', `${repo.repo}@${version}`)
+            core.setOutput('message', `release: ${version}`)
+            core.setOutput('tag', version)
   publish-release:
     name: Publish GitHub release
     needs: metadata
@@ -83,9 +77,10 @@ jobs:
         name: Checkout branch
         uses: actions/checkout@v3
         with:
+          fetch-depth: 0
           ref: main
       - id: node
-        name: Setup Node ${{ matrix.node }}
+        name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
@@ -94,11 +89,8 @@ jobs:
         name: Install dependencies
         run: yarn --immutable
         env:
+          HUSKY: 0
           NODE_AUTH_TOKEN: ${{ env.GH_PAT }}
-      - id: notes
-        name: Generate release notes
-        run: |
-          ./node_modules/.bin/conventional-changelog -n ./changelog.config.json -i ./RELEASE_NOTES.md -s
       - id: pack
         name: Pack project
         run: yarn pack -o %s-%v.tgz
@@ -106,12 +98,10 @@ jobs:
           NODE_ENV: production
           NODE_NO_WARNINGS: 1
           NODE_OPTIONS: --es-module-specifier-resolution=node
-      - id: artifact
-        name: Upload release artifact
-        uses: actions/upload-artifact@v3.1.0
-        with:
-          name: ${{ needs.metadata.outputs.artifact-name }}
-          path: ${{ needs.metadata.outputs.artifact-path }}
+      - id: release-notes
+        name: Generate release notes
+        run: |
+          ./node_modules/.bin/conventional-changelog -n ./changelog.config.json -o RELEASE_NOTES.md
       - id: tag
         name: Create and push new tag
         uses: rickstaa/action-create-tag@v1.3.7
@@ -121,7 +111,7 @@ jobs:
           tag: ${{ needs.metadata.outputs.tag }}
       - id: publish
         name: Create and publish release
-        run: gh release create $TAG $ASSET --notes-file ./RELEASE_NOTES.md
+        run: gh release create $TAG $ASSET -t $TAG -F ./RELEASE_NOTES.md
         env:
           ASSET: ${{ needs.metadata.outputs.artifact-path }}
           GITHUB_TOKEN: ${{ env.GH_PAT }}
@@ -143,11 +133,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: main
-      - id: artifact
-        name: Download release artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: ${{ needs.metadata.outputs.artifact-name }}
       - id: setup-npmrc-gpr
         name: Setup .npmrc file [GPR]
         uses: actions/setup-node@v3
@@ -157,11 +142,24 @@ jobs:
           node-version: ${{ matrix.node }}
           registry-url: https://npm.pkg.github.com
           scope: ${{ env.SCOPE }}
+      - id: yarn
+        name: Install dependencies
+        run: yarn --immutable
+        env:
+          HUSKY: 0
+          NODE_AUTH_TOKEN: ${{ env.GH_PAT }}
+      - id: pack
+        name: Pack project
+        run: yarn pack -o %s-%v.tgz
+        env:
+          NODE_ENV: production
+          NODE_NO_WARNINGS: 1
+          NODE_OPTIONS: --es-module-specifier-resolution=node
       - id: publish-to-gpr
         name: Publish package [GPR]
         run: npm publish $ARTIFACT $DIST_TAG
         env:
-          ARTIFACT: ${{ steps.artifact.outputs.download-path }}
+          ARTIFACT: ${{ needs.metadata.outputs.artifact-path }}
           DIST_TAG: ${{ needs.metadata.outputs.dist-tag }}
           NODE_AUTH_TOKEN: ${{ env.GH_PAT }}
       - id: setup-npmrc-npm
@@ -177,6 +175,6 @@ jobs:
         name: Publish package [NPM]
         run: npm publish $ARTIFACT $DIST_TAG
         env:
-          ARTIFACT: ${{ steps.artifact.outputs.download-path }}
+          ARTIFACT: ${{ needs.metadata.outputs.artifact-path }}
           DIST_TAG: ${{ needs.metadata.outputs.dist-tag }}
           NODE_AUTH_TOKEN: ${{ env.NPM_TOKEN }}
