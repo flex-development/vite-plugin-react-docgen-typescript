@@ -2267,6 +2267,7 @@ __metadata:
     conventional-recommended-bump: "npm:6.1.0"
     cspell: "npm:6.5.0"
     eslint: "npm:8.20.0"
+    eslint-config-prettier: "npm:8.5.0"
     eslint-plugin-chai-expect: "npm:3.0.0"
     eslint-plugin-jest: "npm:26.7.0"
     eslint-plugin-jest-formatting: "npm:3.1.0"
@@ -7952,6 +7953,17 @@ __metadata:
     escodegen: bin/escodegen.js
     esgenerate: bin/esgenerate.js
   checksum: b7b02b8bc92c32b741cf13b558903c230cfd63fa37983a5c07ccac417d5ca67b266a9714180fd833947bd54221ce4fde72f8d772acc5ba1a5a1dafa25978252a
+  languageName: node
+  linkType: hard
+
+"eslint-config-prettier@npm:8.5.0":
+  version: 8.5.0
+  resolution: "eslint-config-prettier@npm:8.5.0"
+  peerDependencies:
+    eslint: ">=7.0.0"
+  bin:
+    eslint-config-prettier: bin/cli.js
+  checksum: fb61fae9c1ac23afddf046c17437c464ce74d16d86ca1e0ee0705a8c0b89c89baf24420451ae0eafd2789e06de21540b99ca2a8ebae13bcd862c02733df2c160
   languageName: node
   linkType: hard
 

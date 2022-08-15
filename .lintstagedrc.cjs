@@ -1,5 +1,6 @@
 /**
  * @file Lint Staged Configuration
+ * @module config/lint-staged
  * @see https://github.com/okonet/lint-staged
  */
 

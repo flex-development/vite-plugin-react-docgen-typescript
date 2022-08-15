@@ -1,5 +1,6 @@
 /**
  * @file Commitlint Configuration
+ * @module config/commitlint
  * @see https://commitlint.js.org/#/guides-local-setup
  * @see https://commitlint.js.org/#/reference-configuration
  */

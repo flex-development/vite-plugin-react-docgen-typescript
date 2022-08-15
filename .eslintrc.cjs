@@ -1,5 +1,6 @@
 /**
  * @file ESLint Configuration - Root
+ * @module config/eslint
  * @see https://eslint.org/docs/user-guide/configuring
  */
 

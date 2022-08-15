@@ -1,5 +1,6 @@
 /**
  * @file ESLint Configuration - Base
+ * @module config/eslint/base
  * @see https://eslint.org/docs/user-guide/configuring
  */
 
@@ -10,6 +11,12 @@
 const tsconfig = require('tsconfig/dist/tsconfig').loadSync(__dirname).config
 
 /**
+ * @type {boolean}
+ * @const jsx - JSX check
+ */
+const jsx = Boolean(tsconfig.compilerOptions.jsx)
+
+/**
  * @type {import('eslint').Linter.Config}
  * @const config - ESLint configuration object
  */
@@ -18,7 +25,11 @@ const config = {
     [tsconfig.compilerOptions.target]: true,
     node: true
   },
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended'
+  ],
   globals: {
     Chai: 'readonly',
     Console: 'readonly',
@@ -36,7 +47,7 @@ const config = {
   parser: require.resolve('@typescript-eslint/parser'),
   parserOptions: {
     ecmaFeatures: {
-      jsx: Boolean(tsconfig.compilerOptions.jsx),
+      jsx,
       impliedStrict: true
     },
     emitDecoratorMetadata: tsconfig.compilerOptions.emitDecoratorMetadata,
@@ -81,20 +92,8 @@ const config = {
         types: {}
       }
     ],
-    '@typescript-eslint/brace-style': 2,
     '@typescript-eslint/camelcase': 0,
     '@typescript-eslint/class-literal-property-style': [2, 'getters'],
-    '@typescript-eslint/comma-dangle': [
-      2,
-      {
-        arrays: 'never',
-        exports: 'never',
-        functions: 'never',
-        imports: 'never',
-        objects: 'never'
-      }
-    ],
-    '@typescript-eslint/comma-spacing': [2, { after: true, before: false }],
     '@typescript-eslint/consistent-indexed-object-style': [2, 'record'],
     '@typescript-eslint/consistent-type-assertions': [
       2,
@@ -126,29 +125,13 @@ const config = {
         allowedNames: []
       }
     ],
-    '@typescript-eslint/func-call-spacing': [2, 'never'],
-    '@typescript-eslint/indent': 0,
     '@typescript-eslint/init-declarations': 0,
-    '@typescript-eslint/keyword-spacing': [2, { after: true, before: true }],
     '@typescript-eslint/lines-between-class-members': [
       2,
       'always',
       {
         exceptAfterOverload: true,
         exceptAfterSingleLine: false
-      }
-    ],
-    '@typescript-eslint/member-delimiter-style': [
-      2,
-      {
-        multiline: {
-          delimiter: 'none',
-          requireLast: false
-        },
-        singleline: {
-          delimiter: 'semi',
-          requireLast: false
-        }
       }
     ],
     '@typescript-eslint/member-ordering': [
@@ -269,7 +252,7 @@ const config = {
         allowShortCircuit: true,
         allowTaggedTemplates: true,
         allowTernary: true,
-        enforceForJSX: true
+        enforceForJSX: jsx
       }
     ],
     '@typescript-eslint/no-unused-vars': [
@@ -295,7 +278,6 @@ const config = {
     '@typescript-eslint/no-useless-constructor': 2,
     '@typescript-eslint/no-useless-empty-export': 2,
     '@typescript-eslint/no-var-requires': 2,
-    '@typescript-eslint/object-curly-spacing': [2, 'always'],
     '@typescript-eslint/padding-line-between-statements': 0,
     '@typescript-eslint/prefer-as-const': 2,
     '@typescript-eslint/prefer-enum-initializers': 2,
@@ -320,18 +302,7 @@ const config = {
         allowTemplateLiterals: true
       }
     ],
-    '@typescript-eslint/semi': [2, 'never'],
     '@typescript-eslint/sort-type-union-intersection-members': 2,
-    '@typescript-eslint/space-before-blocks': [2, 'always'],
-    '@typescript-eslint/space-before-function-paren': [
-      2,
-      {
-        anonymous: 'always',
-        asyncArrow: 'always',
-        named: 'never'
-      }
-    ],
-    '@typescript-eslint/space-infix-ops': [2, { int32Hint: true }],
     '@typescript-eslint/triple-slash-reference': [
       2,
       {
@@ -340,26 +311,10 @@ const config = {
         types: 'prefer-import'
       }
     ],
-    '@typescript-eslint/type-annotation-spacing': [
-      2,
-      {
-        after: true,
-        before: false,
-        overrides: { arrow: { after: true, before: true } }
-      }
-    ],
     '@typescript-eslint/typedef': 0,
     '@typescript-eslint/unified-signatures': 2,
-    'array-bracket-newline': [2, 'consistent'],
-    'array-element-newline': [2, 'consistent'],
-    'brace-style': 0,
-    'comma-dangle': 0,
-    'comma-spacing': 0,
     'default-param-last': 0,
-    'dot-notation': 0,
     eqeqeq: 1,
-    'func-call-spacing': 0,
-    indent: 0,
     'init-declarations': 0,
     'jsdoc/check-access': 1,
     'jsdoc/check-alignment': 1,
@@ -382,7 +337,7 @@ const config = {
       1,
       {
         definedTags: ['visibleName'],
-        jsxTags: true
+        jsxTags: jsx
       }
     ],
     'jsdoc/check-types': [1, { unifyParentAndChildTypeChecks: true }],
@@ -504,21 +459,17 @@ const config = {
       }
     ],
     'jsdoc/valid-types': [1, { allowEmptyNamepaths: true }],
-    'keyword-spacing': 0,
     'lines-between-class-members': 0,
     'no-array-constructor': 0,
     'no-case-declarations': 0,
     'no-duplicate-imports': 0,
     'no-empty-function': 0,
     'no-ex-assign': 0,
-    'no-extra-parens': 0,
-    'no-extra-semi': 0,
     'no-invalid-this': 0,
     'no-loop-func': 0,
     'no-loss-of-precision': 0,
     'no-magic-numbers': 0,
     'no-restricted-imports': 0,
-    'no-return-await': 0,
     'no-shadow': 0,
     'no-unused-expressions': 0,
     'no-unused-vars': 0,
@@ -557,7 +508,6 @@ const config = {
     'node/prefer-promises/fs': 2,
     'node/process-exit-as-throw': 2,
     'node/shebang': 0,
-    'object-curly-spacing': 0,
     'padding-line-between-statements': 0,
     'prefer-arrow-callback': 0,
     'prettier/prettier': [2, require('./.prettierrc.json')],
@@ -576,11 +526,7 @@ const config = {
     'promise/prefer-await-to-then': 2,
     'promise/valid-params': 2,
     quotes: 0,
-    semi: 0,
     'sort-keys': [2, 'asc', { caseSensitive: true, minKeys: 2, natural: true }],
-    'space-before-blocks': 0,
-    'space-before-function-paren': 0,
-    'space-infix-ops': 0,
     'unicorn/better-regex': [2, { sortCharacterClasses: true }],
     'unicorn/catch-error-name': [2, { name: 'e' }],
     'unicorn/consistent-destructuring': 2,
@@ -611,7 +557,8 @@ const config = {
       2,
       {
         styles: {
-          chalk: { default: true }
+          chalk: { default: true },
+          shelljs: { default: true }
         }
       }
     ],
@@ -708,7 +655,7 @@ const config = {
   },
   overrides: [
     {
-      files: ['*.cjs', '*.mjs', '*.ts', '*.tsx'],
+      files: ['*.cjs', '*.cts', '*.mjs', '*.ts', '*.tsx'],
       rules: {
         '@typescript-eslint/await-thenable': 2,
         '@typescript-eslint/consistent-type-exports': [
@@ -845,6 +792,7 @@ const config = {
           }
         ],
         'no-implied-eval': 0,
+        'no-return-await': 0,
         'require-await': 0
       }
     },
@@ -857,7 +805,7 @@ const config = {
       }
     },
     {
-      files: ['*.cjs'],
+      files: ['*.cjs', '*.cts'],
       rules: {
         '@typescript-eslint/no-require-imports': 0,
         '@typescript-eslint/no-var-requires': 0,
@@ -868,14 +816,6 @@ const config = {
       files: ['*.cts', '*.d.ts', '*.ts', '*.tsx'],
       rules: {
         'no-undef': 0
-      }
-    },
-    {
-      files: ['*.cts'],
-      rules: {
-        '@typescript-eslint/no-require-imports': 0,
-        '@typescript-eslint/no-var-requires': 0,
-        'unicorn/prefer-module': 0
       }
     },
     {
@@ -1089,33 +1029,10 @@ const config = {
       }
     },
     {
-      files: [
-        '**/enums/*.ts',
-        '**/interfaces/*.ts',
-        '**/types/*.ts',
-        '*.props.ts',
-        '*.types.ts'
-      ],
+      files: ['**/enums/*.ts', '**/interfaces/*.ts', '**/types/*.ts'],
       rules: {
         'jsdoc/check-indentation': 0,
         'unicorn/no-keyword-prefix': 0
-      }
-    },
-    {
-      files: ['.*.{cjs,mjs,ts,tsx}'],
-      rules: {
-        'jsdoc/require-file-overview': [
-          1,
-          {
-            tags: {
-              file: {
-                initialCommentsOnly: true,
-                mustExist: true,
-                preventDuplicates: true
-              }
-            }
-          }
-        ]
       }
     },
     {
@@ -1127,7 +1044,6 @@ const config = {
     {
       files: ['.eslintrc.*'],
       rules: {
-        '@typescript-eslint/no-unsafe-argument': 0,
         'unicorn/string-content': 0
       }
     },
@@ -1141,6 +1057,12 @@ const config = {
       files: ['.github/workflows/no-response-handler.yml', '.yarnrc.yml'],
       rules: {
         'yml/key-name-casing': 0
+      }
+    },
+    {
+      files: ['helpers/tsconfig-paths.cjs'],
+      rules: {
+        'node/no-deprecated-api': 0
       }
     },
     {

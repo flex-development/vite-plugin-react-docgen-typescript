@@ -1,5 +1,6 @@
 /**
  * @file Markdownlint Configuration
+ * @module config/markdownlint
  * @see https://github.com/DavidAnson/markdownlint
  */
 
