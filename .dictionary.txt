@@ -21,6 +21,7 @@ fpnv
 frec
 gifv
 gpgsign
+hmarr
 iife
 jsxdev
 lcov
@@ -29,6 +30,7 @@ micnncim
 mkdist
 mvdan
 nocheck
+noreply
 npmjs
 npmrc
 nums
