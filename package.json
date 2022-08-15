@@ -117,8 +117,8 @@
     "@typescript-eslint/eslint-plugin": "5.33.1",
     "@typescript-eslint/parser": "5.33.1",
     "@vates/toggle-scripts": "1.0.0",
+    "@vitest/coverage-c8": "0.22.0",
     "@vitest/ui": "0.22.0",
-    "c8": "7.12.0",
     "chai": "4.3.6",
     "conventional-changelog-cli": "2.2.2",
     "conventional-recommended-bump": "6.1.0",
@@ -167,6 +167,7 @@
   },
   "resolutions": {
     "@types/picomatch": "2.3.0",
+    "c8": "7.12.0",
     "glob-parent": "6.0.2",
     "mkdist": "patch:mkdist@npm:0.3.13#.yarn/patches/mkdist-npm-0.3.13-c41cf41c68.patch",
     "picomatch": "2.3.1",

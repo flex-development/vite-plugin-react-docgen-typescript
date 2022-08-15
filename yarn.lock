@@ -2273,8 +2273,8 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:5.33.1"
     "@typescript-eslint/parser": "npm:5.33.1"
     "@vates/toggle-scripts": "npm:1.0.0"
+    "@vitest/coverage-c8": "npm:0.22.0"
     "@vitest/ui": "npm:0.22.0"
-    c8: "npm:7.12.0"
     chai: "npm:4.3.6"
     conventional-changelog-cli: "npm:2.2.2"
     conventional-recommended-bump: "npm:6.1.0"
@@ -4120,6 +4120,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vitest/coverage-c8@npm:0.22.0":
+  version: 0.22.0
+  resolution: "@vitest/coverage-c8@npm:0.22.0"
+  dependencies:
+    c8: "npm:^7.12.0"
+    vitest: "npm:0.22.0"
+  checksum: 9c583c9beeec1bdd2b9549757bba97010024ef97be0c637484575b167d387d0d6c10481cddac7fdc3edefdb4006e96b2544d4bc3e39f3bff440d3a4317433005
+  languageName: node
+  linkType: hard
+
 "@vitest/ui@npm:0.22.0":
   version: 0.22.0
   resolution: "@vitest/ui@npm:0.22.0"
@@ -5611,7 +5621,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"c8@npm:7.12.0, c8@npm:^7.6.0":
+"c8@npm:7.12.0":
   version: 7.12.0
   resolution: "c8@npm:7.12.0"
   dependencies:
