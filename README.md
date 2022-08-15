@@ -4,6 +4,7 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![license](https://img.shields.io/github/license/flex-development/vite-plugin-react-docgen-typescript.svg)](LICENSE.md)
 [![npm](https://img.shields.io/npm/v/@flex-development/vite-plugin-react-docgen-typescript.svg)](https://npmjs.com/package/@flex-development/vite-plugin-react-docgen-typescript)
+[![typescript](https://badgen.net/badge/-/typescript?color=2a72bc&icon=typescript&label)](https://typescriptlang.org)
 
 > A [`react-docgen-typescript`][3] plugin for [Vite][5].\
 > Parse modules for docgen information during development **and** at build time.
