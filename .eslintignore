@@ -2,11 +2,10 @@
 # https://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories
 
 # DIRECTORIES & FILES
-**/.DS_Store
 **/*.snap
+**/.DS_Store
 .eslintcache
 .yarn/*
-CHANGELOG.md
 __tests__/report.json
 coverage/*
 dist/*
