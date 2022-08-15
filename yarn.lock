@@ -2262,7 +2262,7 @@ __metadata:
     "@types/node-notifier": "npm:8.0.2"
     "@types/prettier": "npm:2.6.4"
     "@types/react": "npm:18.0.15"
-    "@types/styled-components": "npm:5.1.25"
+    "@types/styled-components": "npm:5.1.26"
     "@typescript-eslint/eslint-plugin": "npm:5.31.0"
     "@typescript-eslint/parser": "npm:5.31.0"
     "@vates/toggle-scripts": "npm:1.0.0"
@@ -3925,14 +3925,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-components@npm:5.1.25":
-  version: 5.1.25
-  resolution: "@types/styled-components@npm:5.1.25"
+"@types/styled-components@npm:5.1.26":
+  version: 5.1.26
+  resolution: "@types/styled-components@npm:5.1.26"
   dependencies:
     "@types/hoist-non-react-statics": "npm:*"
     "@types/react": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 96b09fe31259320265bcb5fb0264a1d9193ae2266ee4612f65233989f344ecca88e71295062cb08492855691723f2c50f4368bd210c774d32483d089cb95bbef
+  checksum: 1e954ca75707e7130c018d161ca8600a4d9e759a8e8e7cb14b88f51019e5f73ed68a77345114e45139aba60d4e46a2c050b534f58e55b0e8815ea91cf3bed69c
   languageName: node
   linkType: hard
 
