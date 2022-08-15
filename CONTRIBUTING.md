@@ -65,21 +65,17 @@ Follow the steps below to setup your local development environment:
    # PATH
    # 1. local node_modules
    [ -d $PWD/node_modules/.bin ] && export PATH=$PWD/node_modules/.bin:$PATH
-   
+
    # DOTENV ZSH PLUGIN
    # - https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/dotenv
    export ZSH_DOTENV_FILE=.env.zsh
-   
-   # GIT
-   # - https://gist.github.com/troyfontaine/18c9146295168ee9ca2b30c00bd1b41e
-   export GIT_USERNAME=$(git config user.username)
-   
+
    # NVM
    # - https://github.com/nvm-sh/nvm
    export NVM_DIR=$HOME/.nvm
-   
+
    # ---------------------------------------------------------------------------
-   
+
    # LOAD ENVIRONMENT VARIABLES IN CURRENT WORKING DIRECTORY
    # 1. $GITHUB_WORKSPACE
    [ -d $PWD/.git ] && export GITHUB_WORKSPACE=$(git rev-parse --show-toplevel)
@@ -103,7 +99,7 @@ Follow the steps below to setup your local development environment:
 
 | name                |
 | ------------------- |
-| `GIT_USERNAME`      |
+| `CI`                |
 | `NODE_ENV`          |
 | `NODE_NO_WARNINGS`  |
 | `NODE_OPTIONS`      |
@@ -111,7 +107,7 @@ Follow the steps below to setup your local development environment:
 | `TS_NODE_PROJECT`   |
 | `ZSH_DOTENV_FILE`   |
 
-**\*** Provided by [Yarn 2 scripts and binaries][4]\
+**\*** Provided by [Yarn 2 scripts and binaries][4]
 
 #### GitHub Actions
 
@@ -126,10 +122,10 @@ See [`.github/.gitconfig`](.github/.gitconfig) for an exhaustive list.
 ## Contributing Code
 
 [Husky][5] is used to locally enforce coding and commit message standards, as
-well as run test suites pre-push.
+well as run tests pre-push.
 
-Any code merged into the [development and production branches](#branching-model)
-must confront the following criteria:
+Any code merged into the [trunk](#branching-model) must confront the following
+criteria:
 
 - changes should be discussed prior to implementation
 - changes have been tested properly
@@ -305,13 +301,13 @@ merged, PR titles are expected to adhere to the same rules.
 
 ## Merge Strategies
 
-In every repository, the `create a merge commit` and `squash and merge` options
-are enabled.
+In every repository, the `rebase and merge` and `squash and merge` options are
+enabled.
 
-- **create a merge commit**: PR has multiple commits that are not grouped
-- **squash and merge**: PR has one commit or a group of multiple commits
+- **rebase and merge**: PR has one commit or commits that are not grouped
+- **squash and merge**: PR has one commit or a group of commits
 
-Make sure to follow [commit message standards](#commit-messages):
+When squashing, be sure to follow [commit message standards](#commit-messages):
 
 ```zsh
 <type>[optional scope][!]: <pull-request-title> (#pull-request-n)
