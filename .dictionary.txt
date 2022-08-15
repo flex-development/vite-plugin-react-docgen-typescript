@@ -11,6 +11,7 @@ chbh
 chbr
 chbs
 commitlintrc
+dedupe
 dessant
 dohm
 esbenp
