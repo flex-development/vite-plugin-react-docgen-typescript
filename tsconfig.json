@@ -46,6 +46,7 @@
   "exclude": ["./coverage", "./dist", "./node_modules"],
   "include": [
     "**/**/*.cjs",
+    "**/**/*.cts",
     "**/**/*.mjs",
     "**/**/*.ts",
     "**/**/*.tsx",
@@ -60,7 +61,7 @@
     "moduleTypes": {
       ".commitlintrc.ts": "cjs"
     },
-    "require": [],
+    "require": ["./helpers/tsconfig-paths.cjs"],
     "transpileOnly": true
   }
 }

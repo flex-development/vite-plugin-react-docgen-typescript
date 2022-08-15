@@ -1,4 +1,11 @@
 {
+  "[handlebars]": {
+    "editor.defaultFormatter": "Greenbyte.handlebars-preview",
+    "editor.rulers": [100],
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 100,
+    "rewrap.wrappingColumn": 100
+  },
   "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
@@ -37,7 +44,7 @@
   "eslint.enable": true,
   "eslint.nodePath": "./node_modules/eslint",
   "eslint.options": {
-    "extensions": ["cjs", "json", "md", "mjs", "ts", "tsx", "yml"],
+    "extensions": ["cjs", "cts", "json", "md", "mjs", "ts", "tsx", "yml"],
     "overrideConfigFile": "./.eslintrc.cjs"
   },
   "eslint.packageManager": "yarn",
