@@ -96,7 +96,7 @@
     "@commitlint/cli": "17.0.3",
     "@commitlint/config-conventional": "17.0.3",
     "@commitlint/types": "17.0.0",
-    "@faker-js/faker": "7.3.0",
+    "@faker-js/faker": "7.4.0",
     "@flex-development/tutils": "4.8.0",
     "@storybook/react": "6.5.9",
     "@types/chai": "4.3.3",

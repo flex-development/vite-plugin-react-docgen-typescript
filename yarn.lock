@@ -2220,10 +2220,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@faker-js/faker@npm:7.3.0":
-  version: 7.3.0
-  resolution: "@faker-js/faker@npm:7.3.0"
-  checksum: 69a2046fe113c1300feebafa2924a785c2b53bcea658647ba196ce33bdea213c59025d2aa25fb138a84ccacd1cb63b38024b215b90f2af2e44f5c930c4b917ac
+"@faker-js/faker@npm:7.4.0":
+  version: 7.4.0
+  resolution: "@faker-js/faker@npm:7.4.0"
+  checksum: aea7ee5f1f253f9bc6f621780271cf1973bd7e033dbb07fc095fb1813232cbf4a990a85a65b1e3c17ff69a9598c9ddd513c52977245e0bdaa5e63bc10ba8816c
   languageName: node
   linkType: hard
 
@@ -2244,7 +2244,7 @@ __metadata:
     "@commitlint/cli": "npm:17.0.3"
     "@commitlint/config-conventional": "npm:17.0.3"
     "@commitlint/types": "npm:17.0.0"
-    "@faker-js/faker": "npm:7.3.0"
+    "@faker-js/faker": "npm:7.4.0"
     "@flex-development/tutils": "npm:4.8.0"
     "@rollup/pluginutils": "npm:4.2.1"
     "@storybook/react": "npm:6.5.9"
