@@ -99,7 +99,7 @@
     "@faker-js/faker": "7.3.0",
     "@flex-development/tutils": "4.8.0",
     "@storybook/react": "6.5.9",
-    "@types/chai": "4.3.1",
+    "@types/chai": "4.3.3",
     "@types/conventional-changelog": "3.1.1",
     "@types/conventional-changelog-config-spec": "2.1.1",
     "@types/conventional-changelog-writer": "4.0.1",
