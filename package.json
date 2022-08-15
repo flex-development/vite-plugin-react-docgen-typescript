@@ -29,8 +29,7 @@
   "type": "module",
   "files": [
     "dist",
-    "src/*",
-    "CHANGELOG.md"
+    "src"
   ],
   "exports": {
     ".": {

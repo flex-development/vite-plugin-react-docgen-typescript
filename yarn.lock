@@ -11923,7 +11923,7 @@ __metadata:
 
 "mkdist@patch:mkdist@npm:0.3.13#.yarn/patches/mkdist-npm-0.3.13-c41cf41c68.patch::locator=%40flex-development%2Fvite-plugin-react-docgen-typescript%40workspace%3A.":
   version: 0.3.13
-  resolution: "mkdist@patch:mkdist@npm%3A0.3.13#.yarn/patches/mkdist-npm-0.3.13-c41cf41c68.patch::version=0.3.13&hash=eafca3&locator=%40flex-development%2Fvite-plugin-react-docgen-typescript%40workspace%3A."
+  resolution: "mkdist@patch:mkdist@npm%3A0.3.13#.yarn/patches/mkdist-npm-0.3.13-c41cf41c68.patch::version=0.3.13&hash=bec471&locator=%40flex-development%2Fvite-plugin-react-docgen-typescript%40workspace%3A."
   dependencies:
     defu: "npm:^6.0.0"
     esbuild: "npm:^0.14.47"
@@ -11939,7 +11939,7 @@ __metadata:
       optional: true
   bin:
     mkdist: dist/cli.cjs
-  checksum: b00f1da0d1028f80ae34d4476dd808e9498c2a7ba1974ee4edfff7dcb0ed5730bf81e21ac605b9491054146c222d9cea1b6f0b6791af857736fb26e742cbb810
+  checksum: 3c2704f08c064040224160aec00d458e38bc68eda686504c659a16d06d4ec4edd27f0d18bb2e591ddc12be7e80b9943271011a813b30bbac6c621302e4165ecf
   languageName: node
   linkType: hard
 
