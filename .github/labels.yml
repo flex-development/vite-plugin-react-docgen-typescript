@@ -47,7 +47,7 @@
   color: 74cefc
 
 - name: scope:typescript
-  description: typescript
+  description: typescript support
   color: 74cefc
 
 - name: scope:vite
