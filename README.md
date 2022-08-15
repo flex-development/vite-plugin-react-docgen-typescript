@@ -2,7 +2,7 @@
 
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![license](https://img.shields.io/github/license/flex-development/loadenv.svg)](LICENSE)
+[![license](https://img.shields.io/github/license/flex-development/vite-plugin-react-docgen-typescript.svg)](LICENSE.md)
 [![npm](https://img.shields.io/npm/v/@flex-development/vite-plugin-react-docgen-typescript.svg)](https://npmjs.com/package/@flex-development/vite-plugin-react-docgen-typescript)
 
 > A [`react-docgen-typescript`][3] plugin for [Vite][5].\
