@@ -9,6 +9,9 @@ name: lock-inactive-threads
 on:
   schedule:
     - cron: '0 0 * * *'
+permissions:
+  issues: write
+  pull-requests: write
 jobs:
   lock:
     runs-on: ubuntu-latest
