@@ -8,7 +8,6 @@ import { NodeEnv } from '@flex-development/tutils'
 import ci from 'is-ci'
 import path from 'node:path'
 import type { UserConfig } from 'vite'
-import inspect from 'vite-plugin-inspect'
 import tsconfigpaths from 'vite-tsconfig-paths'
 import GithubActionsReporter from 'vitest-github-actions-reporter'
 
@@ -23,7 +22,7 @@ const config = (): UserConfig => {
    *
    * @const {string} TSCONFIG_PATH
    */
-  const TSCONFIG_PATH: string = path.resolve('tsconfig.json')
+  const TSCONFIG_PATH: string = path.resolve('tsconfig.tsnode.json')
 
   return {
     define: {
@@ -31,10 +30,7 @@ const config = (): UserConfig => {
       'import.meta.env.NODE_ENV': JSON.stringify(NodeEnv.TEST)
     },
     mode: NodeEnv.TEST,
-    plugins: [tsconfigpaths({ projects: [TSCONFIG_PATH] }), inspect()],
-    resolve: {
-      extensions: ['.cjs', '.cts', '.js', '.jsx', '.mjs', '.mts', '.ts', '.tsx']
-    },
+    plugins: [tsconfigpaths({ projects: [TSCONFIG_PATH] })],
     test: {
       allowOnly: !ci,
       clearMocks: true,
