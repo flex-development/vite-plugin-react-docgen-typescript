@@ -986,6 +986,7 @@ const config = {
       parser: require.resolve('yaml-eslint-parser'),
       plugins: ['yml'],
       rules: {
+        'prettier/prettier': 0,
         'yml/block-mapping': 2,
         'yml/block-mapping-question-indicator-newline': [2, 'never'],
         'yml/block-sequence': 2,
