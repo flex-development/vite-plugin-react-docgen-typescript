@@ -1,10 +1,14 @@
 {
-  // SEE: https://github.com/tsconfig/bases/blob/main/bases/node16-strictest-esm.combined.json
+  // https://github.com/tsconfig/bases/blob/main/bases/node16.json
+  // https://github.com/tsconfig/bases/blob/main/bases/esm.json
+  // https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
   "compilerOptions": {
     "allowJs": true,
     "allowUnreachableCode": false,
+    "alwaysStrict": false,
     "baseUrl": "./",
     "checkJs": false,
+    "declaration": true,
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "exactOptionalPropertyTypes": false,
@@ -13,9 +17,11 @@
     "isolatedModules": false,
     "jsx": "react-jsxdev",
     "lib": ["dom", "es2021"],
-    "module": "es2022",
+    "module": "esnext",
     "moduleResolution": "node",
+    "newLine": "lf",
     "noEmit": true,
+    "noEmitOnError": true,
     "noErrorTruncation": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
