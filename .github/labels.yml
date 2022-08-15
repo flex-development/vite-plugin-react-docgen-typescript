@@ -26,12 +26,24 @@
 # scope labels
 # project-specific groups for issues, pull requests, and discussions
 
+- name: scope:cjs
+  description: commonjs
+  color: 74cefc
+
 - name: scope:docgen
   description: react-docgen-typescript integration
   color: 74cefc
 
+- name: scope:esm
+  description: es modules
+  color: 74cefc
+
 - name: scope:plugin
   description: plugin implementation
+  color: 74cefc
+
+- name: scope:release
+  description: package release
   color: 74cefc
 
 - name: scope:typescript
