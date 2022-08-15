@@ -67,7 +67,7 @@ jobs:
     needs: metadata
     runs-on: ubuntu-latest
     env:
-      GH_PAT: ${{ secrets.PAT_GPR_ADMIN }}
+      GITHUB_TOKEN: ${{ secrets.PAT_GPR_ADMIN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN_ADMIN }}
     strategy:
       matrix:
@@ -90,7 +90,7 @@ jobs:
         run: yarn --immutable
         env:
           HUSKY: 0
-          NODE_AUTH_TOKEN: ${{ env.GH_PAT }}
+          NODE_AUTH_TOKEN: ${{ env.GITHUB_TOKEN }}
       - id: pack
         name: Pack project
         run: yarn pack -o %s-%v.tgz
@@ -114,14 +114,14 @@ jobs:
         run: gh release create $TAG $ASSET -t $TAG -F ./RELEASE_NOTES.md
         env:
           ASSET: ${{ needs.metadata.outputs.artifact-path }}
-          GITHUB_TOKEN: ${{ env.GH_PAT }}
+          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
           TAG: ${{ needs.metadata.outputs.tag }}
   publish-package:
     name: Publish package to GPR & NPM
     needs: [metadata, publish-release]
     runs-on: ubuntu-latest
     env:
-      GH_PAT: ${{ secrets.PAT_GPR_ADMIN }}
+      GITHUB_TOKEN: ${{ secrets.PAT_GPR_ADMIN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN_ADMIN }}
       SCOPE: '@${{ github.repository_owner }}'
     strategy:
@@ -147,7 +147,7 @@ jobs:
         run: yarn --immutable
         env:
           HUSKY: 0
-          NODE_AUTH_TOKEN: ${{ env.GH_PAT }}
+          NODE_AUTH_TOKEN: ${{ env.GITHUB_TOKEN }}
       - id: pack
         name: Pack project
         run: yarn pack -o %s-%v.tgz
@@ -161,7 +161,7 @@ jobs:
         env:
           ARTIFACT: ${{ needs.metadata.outputs.artifact-path }}
           DIST_TAG: ${{ needs.metadata.outputs.dist-tag }}
-          NODE_AUTH_TOKEN: ${{ env.GH_PAT }}
+          NODE_AUTH_TOKEN: ${{ env.GITHUB_TOKEN }}
       - id: setup-npmrc-npm
         name: Setup .npmrc file [NPM]
         uses: actions/setup-node@v3
