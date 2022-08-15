@@ -2,9 +2,9 @@
 # https://prettier.io/docs/en/ignore.html
 
 # DIRECTORIES & FILES
+**/*.snap
 **/.gitignore
 **/.gitkeep
-**/*.snap
 .eslintcache
 .eslintignore
 .husky/_/*
@@ -12,6 +12,7 @@
 .nvmrc
 .prettierignore
 .yarn/*
+Brewfile
 CHANGELOG.md
 __tests__/report.json
 coverage/*

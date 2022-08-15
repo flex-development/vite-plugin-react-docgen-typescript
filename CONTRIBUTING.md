@@ -343,13 +343,21 @@ e.g:
 Before releasing, the following steps must be completed:
 
 1. Schedule a code freeze
-2. Decide what version bump the package needs (major, minor, or patch)
-   - `yarn release major`
-   - `yarn release minor`
-   - `yarn release patch`
-3. Open a new PR from `release/*` into `main`
-   - do **not** change the PR title
-     - should match `release: <package.json#name>@<new-version>`
+2. Decide what type of version bump the package needs
+   - `yarn recommended-bump`
+3. Bump version
+   - `bump <new-version>`
+   - `bump major`
+   - `bump minor`
+   - `bump patch`
+   - `bump premajor --preid <dist-tag>`
+   - `bump preminor --preid <dist-tag>`
+   - `bump prepatch --preid <dist-tag>`
+   - `bump prerelease --preid <dist-tag>`
+4. `yarn conventional-changelog -i CHANGELOG.md -s`
+5. `yarn release`
+6. Open PR from `release/*` into `main`
+   - PR title should match `release: <package.json#name>@<new-version>`
      - e.g:
        `release: @flex-development/vite-plugin-react-docgen-typescript@1.1.0`
    - link all issues being released

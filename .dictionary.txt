@@ -38,6 +38,7 @@ nvmrc
 ohmyzsh
 pdel
 picomatch
+preid
 rcmdnk
 rickstaa
 safecrlf
