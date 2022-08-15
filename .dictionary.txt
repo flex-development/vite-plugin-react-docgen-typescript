@@ -3,6 +3,7 @@ autocrlf
 autosetuprebase
 bdel
 bdelr
+bdougie
 bren
 cefc
 chbb
@@ -11,6 +12,7 @@ chbh
 chbr
 chbs
 commitlintrc
+dawidd
 dedupe
 dessant
 dohm
@@ -24,6 +26,7 @@ gpgsign
 hmarr
 iife
 jsxdev
+keyid
 lcov
 lintstagedrc
 micnncim
@@ -38,6 +41,7 @@ nvmrc
 ohmyzsh
 pdel
 picomatch
+pkgs
 preid
 rcmdnk
 rickstaa

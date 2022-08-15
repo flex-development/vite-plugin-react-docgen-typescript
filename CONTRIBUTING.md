@@ -330,13 +330,13 @@ e.g:
 - `perf(web): decrease page loading time #26`
 - `release: @flex-development/vite-plugin-react-docgen-typescript@1.0.0 #13`
 
-## Releasing
+## Deployment
 
 > Note: Package and release publication is executed via GitHub workflow.\
 > This is so invalid or malicious versions cannot be published without merging those
 > changes into `main` first.
 
-Before releasing, the following steps must be completed:
+Before deploying, the following steps must be completed:
 
 1. Schedule a code freeze
 2. Decide what type of version bump the package needs
@@ -354,20 +354,23 @@ Before releasing, the following steps must be completed:
 5. `yarn release`
 6. Open PR from `release/*` into `main`
    - PR title should match `release: <package.json#name>@<new-version>`
-     - e.g:
-       `release: @flex-development/vite-plugin-react-docgen-typescript@1.1.0`
+     - e.g: `release: @flex-development/vite-plugin-react-docgen-typescript@1.1.0`
    - link all issues being released
    - after review, `squash and merge` PR
      - `release: @flex-development/vite-plugin-react-docgen-typescript@<new-version> (#pull-request-n)`
-       - e.g:
-         `release: @flex-development/vite-plugin-react-docgen-typescript@1.1.0 (#3)`
-   - once PR is merged, deployment workflow will be triggered
-   - PR reviewer should make sure workflow completes all jobs successfully
+       - e.g: `release: @flex-development/vite-plugin-react-docgen-typescript@1.1.0 (#3)`
+   - on PR merge, [release workflow](.github/workflows/release.yml) will fire
      - if successful, the workflow will:
        - pack project
        - create and push new tag
        - create and publish github release
-       - publish package to [GitHub Package Registry][17] and [NPM][18]
+       - make sure all prereleased or released issues are closed
+       - delete the release branch
+     - on release publish, [publish workflow](.github/workflows/publish.yml)
+       will fire
+       - if successful, the workflow will:
+         - publish package to [github package registry][17]
+         - publish package to [npm][18]
 
 [1]: https://brew.sh
 [2]:
