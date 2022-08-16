@@ -70,7 +70,7 @@ jobs:
         env:
           DATA: ${{ steps.query.outputs.data }}
           PRERELEASE: ${{ contains(steps.version.outputs.result, '-') }}
-          RELEASE_BRANCH: ${{ startsWith(github.ref_name, 'release/') }}
+          RELEASE_BRANCH: ${{ contains(github.head_ref || github.ref_name, 'release/') }}
         with:
           script: |
             const { closingIssuesReferences } = JSON.parse(process.env.DATA).repository.pullRequest
