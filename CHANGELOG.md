@@ -1,3 +1,10 @@
+## [1.0.0-dev.2](https://github.com/flex-development/vite-plugin-react-docgen-typescript/compare/1.0.0-dev.1...1.0.0-dev.2) (2022-08-16)
+
+
+### :robot: Continuous Integration
+
+* **workflows:** fix release branch check in `label-linked-issues` ([5dfd646](https://github.com/flex-development/vite-plugin-react-docgen-typescript/commit/5dfd646f8012e9d5b56bc745497f1dd92c9aaeb5))
+
 ## 1.0.0-dev.1 (2022-08-15)
 
 
