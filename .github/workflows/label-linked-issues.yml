@@ -84,6 +84,6 @@ jobs:
               await github.rest.issues.addLabels({
                 ...context.repo,
                 issue_number,
-                labels: [release ? `status:${prereleased ? 'pre' : ''}released` : 'status:merged']
+                labels: [release ? `status:${prerelease ? 'pre' : ''}released` : 'status:merged']
               })
             }
