@@ -22,6 +22,9 @@ request here.
 
 ## Submission checklist
 
-- [ ] [pr naming conventions](../CONTRIBUTING.md#pull-request-titles)
+- [ ] [pr naming conventions][1]
 - [ ] project was run locally to verify that there are no errors
 - [ ] documentation added or updated
+
+[1]:
+  https://github.com/flex-development/vite-plugin-react-docgen-typescript/blob/main/CONTRIBUTING.md#pull-request-titles
