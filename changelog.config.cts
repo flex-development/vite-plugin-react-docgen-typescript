@@ -10,7 +10,6 @@ import type { CommitGroup } from 'conventional-changelog-writer'
 import type { Commit, CommitRaw } from 'conventional-commits-parser'
 import dateformat from 'dateformat'
 import fs from 'node:fs'
-import pkg from './package.json'
 
 /**
  * Git tag prefix.
@@ -35,7 +34,7 @@ const config: Config = {
     preset: {
       header: '',
       name: 'conventionalcommits',
-      releaseCommitMessageFormat: `release: ${pkg.name}@{{version}}`,
+      releaseCommitMessageFormat: 'release: {{currentTag}}',
       types: [
         { section: ':package: Build', type: 'build' },
         { section: ':house_with_garden: Housekeeping', type: 'chore' },
