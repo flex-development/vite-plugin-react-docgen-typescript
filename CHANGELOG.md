@@ -1,11 +1,18 @@
-## [1.0.0-dev.3](https://github.com/flex-development/vite-plugin-react-docgen-typescript/compare/1.0.0-dev.2...1.0.0-dev.3) (2022-08-16)
+## [1.0.0-dev.4](https://github.com/flex-development/vite-plugin-react-docgen-typescript/compare/1.0.0-dev.3...1.0.0-dev.4) (2022-08-17)
+
+
+### :house_with_garden: Housekeeping
+
+* **release:** update commit message format ([e737d39](https://github.com/flex-development/vite-plugin-react-docgen-typescript/commit/e737d39b34cf182c49f6f7b1da91e37aa98099e6))
+
+## [1.0.0-dev.3](https://github.com/flex-development/vite-plugin-react-docgen-typescript/compare/1.0.0-dev.2...1.0.0-dev.3) (2022-08-15)
 
 
 ### :robot: Continuous Integration
 
 * **workflows:** fix `ReferenceError: prereleased is not defined` ([2010f59](https://github.com/flex-development/vite-plugin-react-docgen-typescript/commit/2010f598b8fcc4f4ff5b83af0eb22be311f41cad))
 
-## [1.0.0-dev.2](https://github.com/flex-development/vite-plugin-react-docgen-typescript/compare/1.0.0-dev.1...1.0.0-dev.2) (2022-08-16)
+## [1.0.0-dev.2](https://github.com/flex-development/vite-plugin-react-docgen-typescript/compare/1.0.0-dev.1...1.0.0-dev.2) (2022-08-15)
 
 
 ### :robot: Continuous Integration
