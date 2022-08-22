@@ -57,7 +57,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
       - id: cache # use this to check for `cache-hit` (`steps.cache.outputs.cache-hit != 'true'`)
         name: Restore yarn cache
-        uses: actions/cache@v3.0.7
+        uses: actions/cache@v3.0.8
         with:
           key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
           path: ${{ steps.cache-dir-path.outputs.dir }}
