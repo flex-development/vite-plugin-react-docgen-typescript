@@ -77,7 +77,7 @@ export const resolve = async (specifier, context, defaultResolve) => {
    * @type {import('tsconfig.json')}
    * @const tsconfig - Base tsconfig
    */
-  const tsconfig = (await loadtsconfig(PWD)).config
+  const tsconfig = (await loadtsconfig(PWD, 'tsconfig.json')).config
 
   /**
    * @type {import('tsconfig.json')}
