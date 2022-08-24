@@ -58,7 +58,6 @@
     ],
     "overrideConfigFile": "./.eslintrc.cjs"
   },
-  "eslint.packageManager": "yarn",
   "eslint.validate": [
     "graphql",
     "javascript",
