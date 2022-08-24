@@ -128,10 +128,6 @@
   description: continuous integration and deployment
   color: 0052cc
 
-- name: type:discussion
-  description: discussion topic
-  color: 0052cc
-
 - name: type:docs
   description: improvements or additions to documentation
   color: 0052cc
