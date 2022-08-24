@@ -30,6 +30,10 @@
   description: commonjs
   color: 74cefc
 
+- name: scope:dependencies
+  description: dependency updates
+  color: 74cefc
+
 - name: scope:docgen
   description: react-docgen-typescript integration
   color: 74cefc
