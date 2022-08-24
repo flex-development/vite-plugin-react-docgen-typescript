@@ -357,12 +357,12 @@ Before deploying, the following steps must be completed:
 4. `yarn conventional-changelog -i CHANGELOG.md -s`
 5. `yarn release`
 6. Open PR from `release/*` into `main`
-   - PR title should match `release: <new-version>`
+   - PR title should match `release: <release-tag>`
      - e.g: `release: 1.1.0`
    - link all issues being released
    - after review, `squash and merge` PR
-     - `release: <new-version> (#pull-request-n)`
-       - e.g: `release 1.1.0 (#3)`
+     - `release: <release-tag> (#pull-request-n)`
+       - e.g: `release: 1.1.0 (#3)`
    - on PR merge, [release workflow](.github/workflows/release.yml) will fire
      - if successful, the workflow will:
        - pack project
