@@ -46,6 +46,10 @@
   description: package release
   color: 74cefc
 
+- name: scope:tests
+  description: testing
+  color: 74cefc
+
 - name: scope:typescript
   description: typescript support
   color: 74cefc
@@ -90,7 +94,7 @@
   color: e7034b
 
 - name: status:needs-triage
-  description: needs verification and minimal reproduction
+  description: needs further assessment
   color: e7034b
 
 - name: status:prereleased
