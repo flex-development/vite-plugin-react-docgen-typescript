@@ -30,12 +30,6 @@ const config = {
       }
     },
     {
-      files: ['build.config.ts'],
-      rules: {
-        'unicorn/prefer-module': 0
-      }
-    },
-    {
       files: ['src/index.ts'],
       rules: {
         /**
