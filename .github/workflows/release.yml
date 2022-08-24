@@ -12,6 +12,7 @@
 # - https://github.com/bdougie/close-issues-based-on-label
 # - https://github.com/crazy-max/ghaction-import-gpg
 # - https://github.com/dawidd6/action-delete-branch
+# - https://github.com/hmarr/debug-action
 
 ---
 name: release
@@ -41,6 +42,9 @@ jobs:
       tag: ${{ steps.tag.outputs.result }}
       version: ${{ steps.version.outputs.result }}
     steps:
+      - id: debug
+        name: Print environment variables and event payload
+        uses: hmarr/debug-action@v2.0.1
       - id: checkout
         name: Checkout ${{ env.REF }}
         uses: actions/checkout@v3.0.2
