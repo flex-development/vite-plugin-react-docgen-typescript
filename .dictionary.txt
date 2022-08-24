@@ -1,4 +1,5 @@
 ahmadnassri
+ardatan
 autocrlf
 autosetuprebase
 bdel
@@ -23,10 +24,12 @@ fpnv
 frec
 gifv
 gpgsign
+graphqlrc
 hmarr
 iife
 jsxdev
 keyid
+larsgw
 lcov
 lintstagedrc
 micnncim
@@ -54,5 +57,6 @@ tspaths
 vates
 vite
 viteshot
+vitest
 vsicons
 yarnrc
