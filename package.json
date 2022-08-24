@@ -59,10 +59,9 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "unbuild",
-    "check:ci": "yarn fix:cg && yarn check:spelling && yarn check:types && yarn test:cov && NODE_ENV=production yarn pack -o %s-%v.tgz && yarn clean:pack",
-    "check:dedupe": "yarn dedupe --check",
+    "check:ci": "yarn dedupe --check && yarn check:format && yarn check:lint && yarn check:spelling && yarn check:types && yarn test:cov && NODE_ENV=production yarn pack -o %s-%v.tgz && yarn clean:pack",
     "check:format": "prettier --check .",
-    "check:lint": "eslint --cache --exit-on-fatal-error --ext cjs,cts,json,md,mjs,ts,tsx,yml --max-warnings 0 .",
+    "check:lint": "eslint --cache --exit-on-fatal-error --ext cjs,cts,gql,json,md,mjs,ts,tsx,yml --max-warnings 0 .",
     "check:spelling": "cspell lint --color --no-progress --relative $@ \"**\"",
     "check:types": "NODE_OPTIONS='--es-module-specifier-resolution=node --loader=./loader' tsc -p tsconfig.json",
     "check:upgrades": "yarn upgrade-interactive",
