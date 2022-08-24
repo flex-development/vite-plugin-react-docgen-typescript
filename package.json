@@ -59,7 +59,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "unbuild",
-    "check:ci": "yarn fix:cg && yarn check:spelling && yarn check:types && yarn test && NODE_ENV=production yarn pack -o %s-%v.tgz && yarn clean:pack",
+    "check:ci": "yarn fix:cg && yarn check:spelling && yarn check:types && yarn test:cov && NODE_ENV=production yarn pack -o %s-%v.tgz && yarn clean:pack",
     "check:dedupe": "yarn dedupe --check",
     "check:format": "prettier --check .",
     "check:lint": "eslint --cache --exit-on-fatal-error --ext cjs,cts,json,md,mjs,ts,tsx,yml --max-warnings 0 .",

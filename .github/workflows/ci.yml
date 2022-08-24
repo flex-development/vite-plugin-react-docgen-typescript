@@ -59,12 +59,13 @@ jobs:
         run: yarn check:spelling
       - id: test
         name: Run tests
-        run: yarn test
+        run: yarn test:cov
         env:
           NODE_ENV: test
           NODE_NO_WARNINGS: 1
           NODE_OPTIONS: --es-module-specifier-resolution=node
           TS_NODE_PROJECT: ./tsconfig.tsnode.json
+          VITEST_SEGFAULT_RETRY: 3
       - id: pack
         name: Pack project
         run: yarn pack -o %s-%v.tgz

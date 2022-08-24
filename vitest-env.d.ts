@@ -10,6 +10,7 @@ interface ImportMetaEnv extends Readonly<import('vite').ImportMetaEnv> {
   readonly TEST: 'true'
   readonly VITEST: 'true'
   readonly VITE_USER_NODE_ENV: import('@flex-development/tutils').NodeEnv
+  readonly VITEST_SEGFAULT_RETRY: import('@flex-development/tutils').Numeric
 }
 
 interface ImportMeta {

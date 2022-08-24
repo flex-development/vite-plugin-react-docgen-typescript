@@ -57,5 +57,6 @@ vates
 vite
 viteshot
 vitest
+vitest
 vsicons
 yarnrc
