@@ -20,6 +20,7 @@ updates:
       prefix: ci
       include: scope
     labels:
+      - scope:dependencies
       - type:ci
   - package-ecosystem: npm
     directory: /
@@ -29,6 +30,7 @@ updates:
       prefix: build
       include: scope
     labels:
+      - scope:dependencies
       - type:build
     registries:
       - gpr
