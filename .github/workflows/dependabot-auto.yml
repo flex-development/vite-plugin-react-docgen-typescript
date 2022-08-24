@@ -1,11 +1,11 @@
 # Dependabot Auto
 #
-# Automatically approve Dependabot pull requests and enable auto-merge.
+# Enable auto-merge and approve pull requests authored by @dependabot.
 #
 # Note: @dependabot generates Yarn v1 lockfiles despite this project using a different Yarn version.
-# This breaks the project lockfile. A workaround has been implemented to autofix lockfiles and
-# deduplicate dependencies. See https://github.com/dependabot/dependabot-core/issues/1297 to check
-# if the workaround is safe to remove.
+# This corrupts the project lockfile. A workaround has been implemented to autofix lockfile format
+# and deduplicate dependencies. Check https://github.com/dependabot/dependabot-core/issues/1297 for
+# details pertaining to the safe removal of this workflow.
 #
 # References:
 #
