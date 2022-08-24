@@ -1,14 +1,11 @@
 # ZSH
 
-Z Shell (ZSH) is used extensively, on many systems. This document describes ZSH
-configurations used in this project.
+Z Shell (ZSH) is used on many systems. This document describes how ZSH is used
+in this project.
 
 ## Overview
 
-[Intro][1]\
-[Install](#install)\
-[Oh My Zsh](#oh-my-zsh)\
-[Setup Script](#setup-script)
+## [Intro][1]
 
 ## Install
 
