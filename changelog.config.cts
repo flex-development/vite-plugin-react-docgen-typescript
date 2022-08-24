@@ -10,13 +10,7 @@ import type { CommitGroup } from 'conventional-changelog-writer'
 import type { Commit, CommitRaw } from 'conventional-commits-parser'
 import dateformat from 'dateformat'
 import fs from 'node:fs'
-
-/**
- * Git tag prefix.
- *
- * @const {string} TAG_PREFIX
- */
-const TAG_PREFIX: string = ''
+import pkg from './package.json'
 
 /**
  * Changelog configuration options.
@@ -51,7 +45,7 @@ const config: Config = {
       ]
     },
     skipUnstable: false,
-    tagPrefix: TAG_PREFIX,
+    tagPrefix: pkg.tagPrefix,
     /**
      * Raw commit transformer.
      *
@@ -71,8 +65,8 @@ const config: Config = {
          *
          * @const {RegExp} vgx
          */
-        const vgx: RegExp = TAG_PREFIX
-          ? new RegExp(`tag:\\s*[=]?${TAG_PREFIX}(.+?)[,)]`, 'gi')
+        const vgx: RegExp = pkg.tagPrefix
+          ? new RegExp(`tag:\\s*[=]?${pkg.tagPrefix}(.+?)[,)]`, 'gi')
           : /tag:\s*[=v]?(.+?)[),]/gi
 
         commit = Object.assign({}, commit, {
