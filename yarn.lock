@@ -2273,7 +2273,6 @@ __metadata:
     "@types/git-raw-commits": "npm:2.0.1"
     "@types/is-ci": "npm:3.0.0"
     "@types/mvdan-sh": "npm:0.10.0"
-    "@types/node": "npm:16.11.49"
     "@types/node-notifier": "npm:8.0.2"
     "@types/prettier": "npm:2.7.0"
     "@types/react": "npm:18.0.17"
@@ -4119,7 +4118,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:16.11.49, @types/node@npm:^14.0.10 || ^16.0.0, @types/node@npm:^14.14.20 || ^16.0.0":
+"@types/node@npm:^14.0.10 || ^16.0.0, @types/node@npm:^14.14.20 || ^16.0.0":
   version: 16.11.49
   resolution: "@types/node@npm:16.11.49"
   checksum: c7e8fd59f9fc9e80206029360f73f7a96be02020f0ed7c59aaa5ec3fa330340ca865eeea2869fcd1ad4da3ce91b0f1ab0fb7f6b4cffe70f901dd64e548ac60b6

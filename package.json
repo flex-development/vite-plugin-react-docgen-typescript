@@ -109,7 +109,6 @@
     "@types/git-raw-commits": "2.0.1",
     "@types/is-ci": "3.0.0",
     "@types/mvdan-sh": "0.10.0",
-    "@types/node": "16.11.49",
     "@types/node-notifier": "8.0.2",
     "@types/prettier": "2.7.0",
     "@types/react": "18.0.17",
