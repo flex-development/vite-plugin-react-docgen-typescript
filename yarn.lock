@@ -2244,13 +2244,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/tutils@npm:4.8.0":
-  version: 4.8.0
-  resolution: "@flex-development/tutils@npm:4.8.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Ftutils%2F4.8.0%2Fa4b304814ae4e807bc28256d680c72578b5876449ed240d98e015f7f27a164a5"
-  peerDependencies:
-    "@types/node": ">=14.0.0"
-    typescript: 4.5.0-beta
-  checksum: 98765e626c0db45c22bf2a6e5e5f22181974539915ae31830afb8b5a8122f0740ae3debb3798b07903507923fecc286ade98f7feb4a50f92cd581b152262cff0
+"@flex-development/tutils@npm:5.0.0":
+  version: 5.0.0
+  resolution: "@flex-development/tutils@npm:5.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Ftutils%2F5.0.0%2F635d885ed4f6081b043c724bde1ab586e621dd9b"
+  checksum: d9ce3008f650a12e6fcb92a6ff252dce48943a0cfc4e8622d178eb92eb8ba16a3e04ac46193919f2c2ea4a1ea38c21a2d33bae8274abc2e2ba07c0671f30e87b
   languageName: node
   linkType: hard
 
@@ -2262,7 +2259,7 @@ __metadata:
     "@commitlint/config-conventional": "npm:17.0.3"
     "@commitlint/types": "npm:17.0.0"
     "@faker-js/faker": "npm:7.4.0"
-    "@flex-development/tutils": "npm:4.8.0"
+    "@flex-development/tutils": "npm:5.0.0"
     "@graphql-eslint/eslint-plugin": "npm:3.10.7"
     "@rollup/pluginutils": "npm:4.2.1"
     "@storybook/react": "npm:6.5.10"
